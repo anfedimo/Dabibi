@@ -1,0 +1,81 @@
+
+jsquid:EmptyStatementUsageCheck¨"Remove this empty statement.(Åñ­õşÿÿÿÿ8îï›ï-H ŞRMINORZ
+CODE_SMELL
+jsquid:EmptyStatementUsageCheckÕ"Remove this empty statement.(Åñ­õşÿÿÿÿ8îï›ï-H¡ŞRMINORZ
+CODE_SMELL
+jsquid:EmptyStatementUsageCheck’"Remove this empty statement.(Åñ­õşÿÿÿÿ8îï›ï-H¢ŞRMINORZ
+CODE_SMELL
+jsquid:EmptyStatementUsageCheck¸"Remove this empty statement.(Åñ­õşÿÿÿÿ8îï›ï-H£ŞRMINORZ
+CODE_SMELL
+jsquid:EmptyStatementUsageCheckİ"Remove this empty statement.(Åñ­õşÿÿÿÿ8îï›ï-H¤ŞRMINORZ
+CODE_SMELL
+jsquid:EmptyStatementUsageCheck«"Remove this empty statement.(Åñ­õşÿÿÿÿ8îï›ï-H¥ŞRMINORZ
+CODE_SMELL
+»%squid:RedundantThrowsDeclarationCheck»"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ã ¸+8îï›ï-H¦ŞRMINORZ
+CODE_SMELL
+Ysquid:S1659§"#Declare "count" on a separate line.(ÉòÈ•8îï›ï-H§ŞRMINORZ
+CODE_SMELL
+Ysquid:S1659Ô"#Declare "count" on a separate line.(ÉòÈ•8îï›ï-H¨ŞRMINORZ
+CODE_SMELL
+Ysquid:S1659‘"#Declare "count" on a separate line.(ÉòÈ•8îï›ï-H©ŞRMINORZ
+CODE_SMELL
+Ysquid:S1659·"#Declare "count" on a separate line.(ÉòÈ•8îï›ï-HªŞRMINORZ
+CODE_SMELL
+Ysquid:S1659Ü"#Declare "count" on a separate line.(ÉòÈ•8îï›ï-H«ŞRMINORZ
+CODE_SMELL
+Ysquid:S1659ª"#Declare "count" on a separate line.(ÉòÈ•8îï›ï-H¬ŞRMINORZ
+CODE_SMELL
+Œsquid:S1192"NDefine a constant instead of duplicating this literal "obligaciones" 16 times.(Ö‹óìúÿÿÿÿ8îï›ï-H­ŞRCRITICALZ
+CODE_SMELL
+¼squid:S1192Ã"‚Define a constant instead of duplicating this literal "No puede generar este cobro porque Total Mora + Hon Esta cobrado!" 4 times.(áÕçÕ8îï›ï-H®ŞRCRITICALZ
+CODE_SMELL
+isquid:S1066j"/Merge this if statement with the enclosing one.(€éîùÿÿÿÿ8îï›ï-H¯ŞRMAJORZ
+CODE_SMELL
+Qsquid:S3626ñ"Remove this redundant jump.(ûÁİ…8îï›ï-H°ŞRMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLineu"<This block of commented-out lines of code should be removed.(²®º}8îï›ï-H±ŞRMAJORZ
+CODE_SMELL
+csquid:S1125ë"(Remove the literal "true" boolean value.(µ¶ÉĞøÿÿÿÿ8îï›ï-H²ŞRMINORZ
+CODE_SMELL
+dsquid:S1125ë")Remove the literal "false" boolean value.(µ¶ÉĞøÿÿÿÿ8îï›ï-H³ŞRMINORZ
+CODE_SMELL
+csquid:S1905b")Remove this unnecessary cast to "String".(˜œŸñüÿÿÿÿ8îï›ï-H´ŞRMINORZ
+CODE_SMELL
+csquid:S1905c")Remove this unnecessary cast to "String".(é˜§…ıÿÿÿÿ8îï›ï-HµŞRMINORZ
+CODE_SMELL
+csquid:S1905d")Remove this unnecessary cast to "String".(²æ«˜øÿÿÿÿ8îï›ï-H¶ŞRMINORZ
+CODE_SMELL
+csquid:S1905e")Remove this unnecessary cast to "String".(¶óÒ¹şÿÿÿÿ8îï›ï-H·ŞRMINORZ
+CODE_SMELL
+squid:S3776å"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(İÏéƒøÿÿÿÿ8îï›ï-H¸ŞRCRITICALZ
+CODE_SMELL
+‹squid:S3776È"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(óÆŠÓ8îï›ï-H¹ŞRCRITICALZ
+CODE_SMELL
+Šsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¿åÇÿÿÿÿÿ8îï›ï-HºŞRMINORZ
+CODE_SMELL
+…squid:S00100’"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üĞ¤È8îï›ï-H»ŞRMINORZ
+CODE_SMELL
+|squid:S00112»"FDefine and throw a dedicated exception instead of using a generic one.(ã ¸+8îï›ï-H¼ŞRMAJORZ
+CODE_SMELL
+”squid:S00116;"YRename this field "connected_call" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó´‚Ëıÿÿÿÿ8îï›ï-H½ŞRMINORZ
+CODE_SMELL
+ˆsquid:S00117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üĞ¤È8îï›ï-H¾ŞRMINORZ
+CODE_SMELL
+asquid:S1948$")Make "cliente" transient or serializable.(Ó…ß®8îï›ï-H¿ŞRCRITICALZ
+CODE_SMELL
+fsquid:S1948%")Make "gestion" transient or serializable.(ğºÙòøÿÿÿÿ8îï›ï-HÀŞRCRITICALZ
+CODE_SMELL
+hsquid:S1948&"+Make "gestiones" transient or serializable.(Ô¾“óşÿÿÿÿ8îï›ï-HÁŞRCRITICALZ
+CODE_SMELL
+lsquid:S1948'"/Make "departamentos" transient or serializable.(–±­—şÿÿÿÿ8îï›ï-HÂŞRCRITICALZ
+CODE_SMELL
+gsquid:S1948("*Make "ciudades" transient or serializable.(×»­ëøÿÿÿÿ8îï›ï-HÃŞRCRITICALZ
+CODE_SMELL
+gsquid:S1948-"/Make "tipodireccion" transient or serializable.(íÁâÚ8îï›ï-HÄŞRCRITICALZ
+CODE_SMELL
+nsquid:S19482"1Make "facturasGestion" transient or serializable.(ÜÅëÿÿÿÿÿ8îï›ï-HÅŞRCRITICALZ
+CODE_SMELL
+_squid:S1948<"'Make "pagos" transient or serializable.(İù„8îï›ï-HÆŞRCRITICALZ
+CODE_SMELL
+esquid:S1948K"(Make "logger" transient or serializable.(¤şæıÿÿÿÿ8îï›ï-HÇŞRCRITICALZ
+CODE_SMELL

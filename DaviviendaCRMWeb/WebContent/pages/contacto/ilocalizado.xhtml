@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+	<h:form id="frmIlocalizado">
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		<p:messages id="msgs" />
+
+		<table>
+			<tbody>
+				<tr>
+					<td><h:outputText value="Resultado:" /></td>
+					<td><h:outputText
+							value="Se lista los resultados que apliquen a la tipificación seleccionada" />
+					</td>
+
+				</tr>
+				<tr>
+					<td></td>
+					<td><p:selectOneMenu required="true" label="tipificación" 
+							value="#{politicaRediferidoBean.selectedTipificacion}"
+							requiredMessage="Por favor seleccione una tipificación"
+							style="width:150px">
+							<f:selectItem itemLabel="Selecione tipificación" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems var="tipificacion"
+								value="#{politicaRediferidoBean.listaTipificaciones}"
+								itemValue="#{tipificacion.idTipificacionTipo}"
+								itemLabel="#{tipificacion.nombreTipificacion}" />
+						</p:selectOneMenu></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Observación: " for="txtObservacion" />
+					</td>
+					<td><p:inputTextarea   id="txtObservacion"
+							rows="6" cols="66" value="#{politicaRediferidoBean.observacion}"
+							required="true" label="observacion" size="40"
+							requiredMessage="Por favor ingrese una observación"
+							validatorMessage="Formato invalido observación">
+							<f:validateRegex pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s,\.]+$" />
+							<p:message for="txtObservacion" />
+						</p:inputTextarea></td>
+				</tr>
+				<tr>
+					<td><p:outputLabel value=" ¿Desea agendar llamada? " /></td>
+					<td><p:commandButton  value="Si"
+							action="#{politicaRediferidoBean.aceptoAgendamientoMetodoContacto(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+							update="growl" />
+					<p:commandButton  value="No"
+							action="#{politicaRediferidoBean.agendamiento(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+							update="@form:growl" /></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</h:form>
+</body>
+</html>

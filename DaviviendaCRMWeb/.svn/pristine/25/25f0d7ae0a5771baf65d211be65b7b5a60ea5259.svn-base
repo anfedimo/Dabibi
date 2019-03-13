@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+
+	<p:dataTable var="historico" value="#{politicaRediferidoBean.historicoObligaciones}"
+	   scrollable="true" scrollWidth="100%" scrollHeight="150" emptyMessage="Historico de obligaciones">
+		<f:facet name="header">
+			<p:outputLabel value="Historico de obligaciones"></p:outputLabel>
+		</f:facet>
+
+		<p:column headerText="Fecha Acuerdo" width="45">
+			<h:outputText value="#{historico.fechaCrea}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p:column>
+
+
+
+		<p:column headerText="Fecha Promesa" width="45">
+			<h:outputText value="#{historico.fechaPromesa}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p:column>
+
+		<p:column headerText="Monto" width="45">
+			<h:outputText value="#{historico.valorPromesa}">
+				<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+			</h:outputText>
+		</p:column>
+
+		<p:column headerText="Tipificación" width="45">
+			<h:outputText value="#{historico.politica}" />
+		</p:column>
+
+		<p:column headerText="Estado" width="45">
+			<h:outputText value="#{historico.estado}" />
+		</p:column>
+
+		<p:column headerText="Gestor" width="45">
+			<h:outputText value="#{historico.fullNameAltitude}" />
+		</p:column>
+	</p:dataTable>
+</body>
+</html>

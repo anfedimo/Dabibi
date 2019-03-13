@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+	<h:form id="frmMotivoNoPago">
+		<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+
+		<p:row>
+			<p:column>
+				<h:outputText
+					value="Le habla "/>
+					<h:outputText value="${loginBean.usuarioHermes.nombre}" /> 
+					<h:outputText value=" de su BCO DAVIVIENDA, el motivo de mi llamada es para informarle que 
+					su tarjeta de crédito terminada en " />
+					<h:outputText value="${DetallesObligacionesBean.obligacionHoy.codTrunc}"  />
+					<h:outputText value=" presenta "/>
+					<h:outputText value="${DetallesObligacionesBean.obligacionHoy.diaMoraCalculoHoy}" /> 
+					<h:outputText value=" días en mora. ¿Cuál ha sido el motivo de no-pago? " />
+			</p:column>
+		</p:row>
+		<br />
+		<p:row>
+			<p:column>
+				<p:selectOneMenu value="#{politicaRediferidoBean.selectedMotivoNoPago}"
+					style="width:250px">
+					<f:selectItem itemLabel="Selecione motivo no pago" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItems var="motivoNoPago"
+						value="#{politicaRediferidoBean.listaMotivoNoPago}"
+						itemValue="#{motivoNoPago.idMotivoNoPago}"
+						itemLabel="#{motivoNoPago.nombreMotivoNoPago}" />
+				</p:selectOneMenu>
+			</p:column>
+		</p:row>
+		<br />
+		<p:row>
+			<p:column>
+				<p:commandButton ajax="false" value="Continuar" 
+				action="#{politicaRediferidoBean.verDetalleObligacionMotivoNoPago(1)}"
+				update="growl"/>
+			</p:column>
+		</p:row>
+
+	</h:form>
+</body>
+</html>

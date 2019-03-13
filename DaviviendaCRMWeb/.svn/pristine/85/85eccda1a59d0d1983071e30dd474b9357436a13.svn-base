@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+
+	<style>
+.dialog .ui-dialog-titlebar {
+	background-color: #007FFF;
+	color: white;
+}
+</style>
+
+	<h:outputStylesheet library="css" name="./resources/css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+</h:head>
+<body>
+
+
+
+	<h:form id="frmComite">
+
+		<p:dialog id="dlComite" closable="true" header="Advertencia"
+			widgetVar="dlComite" modal="true" styleClass="dialog">
+			<p:panel id="pnlDlMensaje">
+				<h:outputText value="#{comiteBean.mensajeError}" />
+			</p:panel>
+		</p:dialog>
+
+
+		<p:panel id="pnlComite">
+<p:toolbar>
+				<p:toolbarGroup align="center">
+					<p:outputLabel value="Promesa" />
+				</p:toolbarGroup>
+			</p:toolbar>
+			<br></br>
+				
+				<p:commandButton ajax="false" action="#{comiteBean.calcularFacturas}"
+					value="Actualizar Tabla" icon="ui-icon-refresh" 
+					style="background: #D4F3CB"></p:commandButton>
+				<p:dataTable var="obligacion"
+					value="#{comiteBean.obligacionesCobro}">
+
+					<p:column headerText="Factura" width="8%">
+						<h:outputText value="#{obligacion.factura}" />
+					</p:column>
+
+					<p:column headerText="Capital">
+
+						<h:outputText value="#{obligacion.totalCartera}">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</h:outputText>
+
+
+					</p:column>
+					<p:column headerText="% Capital">
+			<p:inputNumber style="width:90%;" decimalSeparator=","
+							decimalPlaces="2" value="#{obligacion.capitalDescuento}">
+							<p:ajax event="change"
+								listener="#{comiteBean.actualizarCobro(obligacion)}"></p:ajax>
+						</p:inputNumber>
+					</p:column>
+					<p:column headerText="Capital Con Descuento">
+						<h:outputText value="#{obligacion.totalCapDesc}">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Interes">
+						<h:outputText value="#{obligacion.interesesMora}">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="% interes">
+						<p:inputNumber style="width:90%;" decimalSeparator=","
+							decimalPlaces="2" value="#{obligacion.interesDescuento}">
+							<p:ajax event="blur"
+								listener="#{comiteBean.actualizarCobro(obligacion)}"></p:ajax>
+						</p:inputNumber>
+					</p:column>
+					<p:column headerText="Interes Con descuento">
+						<h:outputText value="#{obligacion.totalIntDesc}">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$"/>
+
+						</h:outputText>
+					</p:column>
+					<p:column headerText="Total cobro">
+						<h:outputText value="#{obligacion.totalCobro}">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</h:outputText>
+					</p:column>
+
+
+
+
+				</p:dataTable>
+				<center>
+					<p:panelGrid columns="2" styleClass="companyHeaderGrid">
+						<p:panelGrid columns="2" styleClass="companyHeaderGrid"
+							style="width:300px">
+
+
+
+							<p:outputLabel value="Total Comite: "></p:outputLabel>
+							<p:outputLabel value="#{comiteBean.totalPromesa}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</p:outputLabel>
+
+							<p:outputLabel value="Cuotas: " style=" "></p:outputLabel>
+							<p:inputNumber style="width:90%;" decimalSeparator=","
+								 thousandSeparator="."  value="#{comiteBean.cantCuotas}">
+							</p:inputNumber>
+
+							<p:outputLabel value="Fecha promesa: " style=" "></p:outputLabel>
+							<p:calendar value="#{comiteBean.fechaPromesa}"></p:calendar>
+						</p:panelGrid>
+
+
+
+					</p:panelGrid>
+					<center>
+						<p:panelGrid columns="1" styleClass="companyHeaderGrid">
+							<p:outputLabel value="Tipificaci&oacute;n:"
+								for="slcTipificacionOtrs"></p:outputLabel>
+							<p:selectOneMenu value="#{comiteBean.idTipificacion}"
+								style="width:400px" id="slcTipificacionOtrs">
+								<f:selectItem itemLabel="Seleccione..." itemValue="" />
+								<f:selectItems value="#{comiteBean.tipificaciones}"></f:selectItems>
+								<p:ajax event="change" update="frmComite:slcRazon"
+									listener="#{comiteBean.onChangeTipificacion}" procces="@this" />
+							</p:selectOneMenu>
+
+							<p:outputLabel value="Raz&oacute;n no Pago:" for="slcRazon"></p:outputLabel>
+							<p:selectOneMenu value="#{comiteBean.idRazon}" id="slcRazon"
+								style="width:400px">
+								<f:selectItem itemLabel="Seleccione..." itemValue="" />
+								<f:selectItems value="#{comiteBean.razones}"></f:selectItems>
+							</p:selectOneMenu>
+
+							<p:outputLabel value="Observaci&oacute;n:" for="txtObsOtros"></p:outputLabel>
+							<p:inputTextarea   value="#{comiteBean.observacion}"
+								id="txtObsOtros" style="width:400px"></p:inputTextarea>
+							<p:commandButton ajax="false" value="Guardar gestión"
+								action="#{comiteBean.guardarPromesa()}" icon="ui-icon-disk"></p:commandButton>
+						</p:panelGrid>
+					</center>
+				</center>
+		
+
+		</p:panel>
+	</h:form>
+
+
+</body>
+</html>

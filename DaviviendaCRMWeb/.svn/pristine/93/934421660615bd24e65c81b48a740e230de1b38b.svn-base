@@ -1,0 +1,502 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+
+	<style>
+.dialog .ui-dialog-titlebar {
+	background-color: #007FFF;
+	color: white;
+}
+</style>
+
+
+	<h:outputStylesheet library="css" name="./resources/css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<script type="text/javascript">
+		function fun_include_hold(letra) {
+
+			$.getJSON('http://localhost:80/apiagentbox?action=hold', function(
+					res) {
+				res = JSON.stringify(res);
+
+			});
+		}
+
+		function fun_include_mute(letra) {
+
+			$.getJSON('http://localhost:80/apiagentbox?action=mute', function(
+					res) {
+				res = JSON.stringify(res);
+			});
+		}
+
+		function fun_include_haup(letra) {
+
+			$.getJSON('http://localhost:80/apiagentbox?action=haup', function(
+					res) {
+				res = JSON.stringify(res);
+			});
+		}
+	</script>
+
+</h:head>
+
+<body>
+	<p:growl id="growl" showDetail="true" sticky="true" />
+	<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		template="../../resources/templates/templateGestion.xhtml">
+		<ui:define name="top">
+			<div
+				style="position: relative; top: -14px; left: 182px; margin-top: -2%; width: 20%;">
+				<center>
+					<p:row>
+						<p:column>
+							<p:commandButton value="Colgar"
+								onclick="fun_include_haup('haup');" icon="fa fa-arrow-down"></p:commandButton>
+						</p:column>
+						<p:column>
+							<p:commandButton value="Mute" onclick="fun_include_mute('mute');"
+								icon="fa fa-microphone-slash"></p:commandButton>
+						</p:column>
+
+						<p:column>
+							<p:commandButton value="Espera"
+								onclick="fun_include_hold('hold');" icon="fa fa-clock-o"></p:commandButton>
+						</p:column>
+
+						<p:column>
+							<p:commandButton action="#{llamadaBean.metodoLlamada(1)}" value="Llamar"
+								icon="fa fa-phone"
+								onclick="PF('statusDialog').show();"
+								oncomplete="PF('statusDialog').hide();PF('dlgLlamadas').show();"/>
+						</p:column>
+
+						<br></br>
+						<br></br>
+						<p:column>
+							<p:commandButton value="Limpiar"
+								action="#{politicaRediferidoBean.setearTodo}"
+								icon="fa fa-eraser">
+							</p:commandButton>
+						</p:column>
+					</p:row>
+				</center>
+
+			</div>
+
+		</ui:define>
+
+		<ui:define name="left">
+			<p:dialog dynamic="true" modal="true" resizable="false"
+				header="Advertencia" hideEffect="fade" showEffect="fade"
+				widgetVar="dlg1" minHeight="40" styleClass="dialog"
+				position="center center" onShow="PF('dlg1').initPosition()"
+				responsive="true">
+				<h:outputText value="#{clienteBean.mesajeError}" />
+			</p:dialog>
+
+		</ui:define>
+
+		<ui:define name="content">
+			<h:form id="obligaciones">
+
+				<p:panel id="toggleableObligacion"
+					header="Consolidado de obligaciones de las campañas"
+					toggleable="true" collapsed="true" status="hidden"
+					toggleSpeed="500" closeSpeed="500" widgetVar="toggleableObligacion"
+					style="margin-bottom:20px">
+
+					<p:dataTable var="obligacion"
+						value="#{clienteBean.cliente.obligaciones}" scrollable="true"
+						scrollHeight="120" scrollWidth="885" frozenColumns="1"
+						reflow="true"
+						emptyMessage="Las Obligaciones de este deudor presentan anulaciones">
+
+						<f:facet name="header">
+							<p:outputLabel
+								value="Consolidado de obligaciones de las campañas"></p:outputLabel>
+						</f:facet>
+
+						<p:column headerText="Campaña" width="200">
+							<h:outputText value="#{obligacion.campana}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Cantidad" width="200">
+							<h:outputText value="#{obligacion.cantidad}" />
+						</p:column>
+
+						<p:column headerText="Pago Mínimo" width="200">
+							<h:outputText value="#{obligacion.pagoMinimo}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo en mora" width="200">
+							<h:outputText value="#{obligacion.saldoMora}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo capital" width="200">
+							<h:outputText value="#{obligacion.saldoCapital}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago total" width="200">
+							<h:outputText value="#{obligacion.pagoTotal}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Intereses corrientes" width="200">
+							<h:outputText value="#{obligacion.interesCorriente}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Intereses mora" width="200">
+							<h:outputText value="#{obligacion.interesMora}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Honorarios" width="200">
+							<h:outputText value="#{obligacion.honorarios}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago mínimo + Honorarios" width="200">
+							<h:outputText value="#{obligacion.pagMinMasHonorarios}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Días mora en dolares" width="200">
+							<h:outputText value="#{obligacion.diasMoraDolar}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo en dolares" width="200">
+							<h:outputText value="#{obligacion.saldoDolar}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo mora en dolares" width="200">
+							<h:outputText value="#{obligacion.saldoMoraDolar}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago mínimo dolares" width="200">
+							<h:outputText value="#{obligacion.pagoMinDolar}">
+							</h:outputText>
+						</p:column>
+
+					</p:dataTable>
+				</p:panel>
+
+				<p:panel id="toggleableObligacionHoy"
+					header="Obligaciones del deudor" toggleable="true" collapsed="true"
+					status="hidden" toggleSpeed="500" closeSpeed="500"
+					widgetVar="toggleableObligacionHoy" style="margin-bottom:20px">
+
+					<p:dataTable var="obligacionHoy"
+						value="#{clienteBean.cliente.obligacionesHoy}" scrollable="true"
+						scrollHeight="100" scrollWidth="675" frozenColumns="3"
+						reflow="true" emptyMessage="Obligaciones del deudor">
+
+						<f:facet name="header">
+							<p:outputLabel value="Obligaciones del deudor"></p:outputLabel>
+						</f:facet>
+
+
+						<p:column headerText="Detalle"
+							style="width:32px; text-align: center">
+							<p:commandButton
+								action="#{DetallesObligacionesBean.detalleObligacion(obligacionHoy.idCliente, obligacionHoy.numeroCredito)}"
+								icon="ui-icon-search" title="Detalle" />
+						</p:column>
+
+
+						<p:column headerText="No. Obligación" width="150">
+							<h:outputText value="#{obligacionHoy.idObligacion}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="No. de crédito" width="200">
+							<h:outputText value="#{obligacionHoy.numeroCredito}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Días mora" width="200">
+							<h:outputText value="${obligacionHoy.diaMoraCalculoHoy}" />
+						</p:column>
+
+						<p:column headerText="Producto" width="200">
+							<h:outputText value="#{obligacionHoy.nombreProducto}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Banda" width="200">
+							<h:outputText value="#{obligacionHoy.banda}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago mínimo" width="200">
+							<h:outputText value="#{obligacionHoy.pagoMinimo}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago mínimo inicial" width="200">
+							<h:outputText value="#{obligacionHoy.pagoMinimoInicial}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo en mora" width="200">
+							<h:outputText value="#{obligacionHoy.saldoMora}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo capital" width="200">
+							<h:outputText value="#{obligacionHoy.saldoCapital}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo total inicial" width="200">
+							<h:outputText value="#{obligacionHoy.saldoTotalInicial}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo total" width="200">
+							<h:outputText value="#{obligacionHoy.saldoTotal}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Intereses corrientes" width="200">
+							<h:outputText value="#{obligacionHoy.interesCorriente}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Intereses en mora" width="200">
+							<h:outputText value="#{obligacionHoy.interesesMora}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Honorarios" width="200">
+							<h:outputText value="#{obligacionHoy.honorarios}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Bloqueo evolución" width="200">
+							<h:outputText value="#{obligacionHoy.bloqueoEvolucion}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Rango" width="200">
+							<h:outputText value="#{obligacionHoy.rango}">
+							</h:outputText>
+						</p:column>
+
+
+						<p:column headerText="Día corte" width="200">
+							<h:outputText value="#{obligacionHoy.fechaCorteArchivo}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Descripción del ciclo" width="200">
+							<h:outputText value="#{obligacionHoy.descripcionCiclo}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Cuadrante" width="200">
+							<h:outputText value="#{obligacionHoy.cuadrante}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago total cliente" width="200">
+							<h:outputText value="#{obligacionHoy.pagoTotal}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Rediferido" width="200">
+							<h:outputText value="#{obligacionHoy.rediferido}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Opciones rediferido" width="200">
+							<h:outputText value="#{obligacionHoy.opcionesRediferido}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Reestructuración" width="200">
+							<h:outputText value="#{obligacionHoy.reestructuracion}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Davi bono" width="200">
+							<h:outputText value="#{obligacionHoy.daviBono}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Davi abono" width="200">
+							<h:outputText value="#{obligacionHoy.daviABono}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Bono zanahoria" width="200">
+							<h:outputText value="#{obligacionHoy.bonoZanahoria}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Abono zanahoria" width="200">
+							<h:outputText value="#{obligacionHoy.abonoZanahoria}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago mes" width="200">
+							<h:outputText value="#{obligacionHoy.pagoMes}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago últimos 15 días" width="200">
+							<h:outputText value="#{obligacionHoy.pagoUltimos15Dias}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Fecha acuerdo" width="200">
+							<h:outputText value="#{obligacionHoy.fechaAcuerdo}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Estrategia gestion" width="200">
+							<h:outputText value="#{obligacionHoy.estrategiaGestion}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Estrategia seguimiento" width="200">
+							<h:outputText value="#{obligacionHoy.estadoSeguimiento}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Fecha seguimiento" width="200">
+							<h:outputText value="#{obligacionHoy.fechaSeguimiento}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago mínimo honorarios" width="200">
+							<h:outputText value="#{obligacionHoy.pagMinHonorariosTotal}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo mora honorarios" width="200">
+							<h:outputText value="#{obligacionHoy.saldoMoraHonorariosTotal}">
+								<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Cabecera para 30" width="200">
+							<h:outputText value="#{obligacionHoy.cabeceraPara30}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Días mora dolar" width="200">
+							<h:outputText value="#{obligacionHoy.diasMoraDolar}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo en dolares" width="200">
+							<h:outputText value="#{obligacionHoy.saldoDolar}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Saldo mora en dolares" width="200">
+							<h:outputText value="#{obligacionHoy.saldoMoraDolar}">
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Pago minimo en dolares" width="200">
+							<h:outputText value="#{obligacionHoy.saldoMoraDolar}">
+							</h:outputText>
+						</p:column>
+					</p:dataTable>
+				</p:panel>
+			</h:form>
+
+			<p:panel id="principal" header="Principal">
+				<c:if test="#{DetallesObligacionesBean.opcionPrincipal == 1 }">
+					<ui:include src="/pages/principal/principal.xhtml" />
+				</c:if>
+			</p:panel>
+
+
+			<p:panel id="opcionesContacto" header="Contacto">
+				<c:if test="#{politicaRediferidoBean.noContacto == 1 }">
+					<ui:include src="/pages/contacto/ilocalizado.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.opcionMensajeTercero == 1 }">
+					<ui:include src="/pages/contacto/mensaje_tercero.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.opcionContactoTitular == 1 }">
+					<ui:include src="/pages/contacto/motivo_no_pago.xhtml" />
+				</c:if>
+			</p:panel>
+
+			<p:panel id="obligacion" header="Detalles Obligación">
+				<c:if test="#{politicaRediferidoBean.opcionDetalles == 1 }">
+					<ui:include src="/pages/detalleObligacion/detallesObligacion.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.aceptoAgendamiento == 1 }">
+					<ui:include src="../../pages/agendamiento/agendar_llamada.xhtml" />
+				</c:if>
+				<c:if
+					test="#{politicaRediferidoBean.aceptoAgendamientoContacto == 1 }">
+					<ui:include src="../../pages/agendamiento/agendar_llamada.xhtml" />
+				</c:if>
+			</p:panel>
+
+			<!--<p:panel id="llamadas" header="Llamar" toggleable="true"
+				collapsed="true" status="hidden" toggleSpeed="500" closeSpeed="500"
+				widgetVar="llamadas" style="margin-bottom:20px">
+				<c:if test="#{llamadaBean.opcionLlamada == 1 }">
+					<ui:include src="/pages/llamar/llamar.xhtml" />
+				</c:if>
+			</p:panel>-->
+
+			<!-- Popup detalles obligación -->
+			<!-- <p:dialog header="Detalle Obligaciones" widgetVar="obligacionDialog"
+					modal="true" height="550" width="758" scrollable="true"
+					scrollHeight="70%" responsive="true" closable="true" resizable="true">
+					<ui:include src="/pages/detalleObligacion/detallesObligacion.xhtml">
+					</ui:include>			
+				</p:dialog> -->
+			<br></br>
+		</ui:define>
+
+	</ui:composition>
+
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+
+	<h:outputStylesheet name="cssLayout.css" library="css" />
+
+	<h:outputStylesheet library="css" name="style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<style>
+.companyHeaderGrid.ui-panelgrid>*>tr, .companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell
+	{
+	border: none;
+}
+</style>
+
+</h:head>
+<body>
+
+
+<h:form>
+<p:panelGrid id="botonera" columns="7" styleClass="companyHeaderGrid">     
+    <p:growl id="messages" showDetail="true" />
+    <p:toolbar>
+        <f:facet name="left">
+            <p:commandButton ajax="false" value="No Contacto"
+				action="#{navegacionBean.redireccionGestionNoContacto}" icon="ui-icon-closethick"></p:commandButton>
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+            <p:commandButton ajax="false" value="Promesa"
+				action="#{navegacionBean.redireccionGestionPromesa}" icon="ui-icon-script"></p:commandButton>
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+            <p:commandButton ajax="false" value="Ya pago"
+				action="#{navegacionBean.redireccionGestionYaPago}" icon="ui-icon-suitcase"></p:commandButton>
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+            <p:commandButton ajax="false" value="Reclamo"
+				action="#{navegacionBean.redireccionReclamo}" icon="ui-icon-alert"></p:commandButton>
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+            <p:commandButton ajax="false" value="Otros"
+				action="#{navegacionBean.redireccionGestionOtro}" icon="ui-icon-tag" ></p:commandButton>
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+            <p:commandButton ajax="false" value="Tercero"
+				action="#{navegacionBean.redireccionGestionTercero}" icon="ui-icon-person"></p:commandButton>
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+            <c:if test="#{not clienteBean.comiteAbierto}">
+				<p:commandButton ajax="false" value="Comite"
+					action="#{navegacionBean.redireccionGestionComite}" icon="ui-icon-star"></p:commandButton>
+			</c:if>
+			<c:if test="#{clienteBean.comiteAprobado}">
+				<p:commandButton ajax="false" value="Acuerdo Comite"
+					action="#{navegacionBean.redireccionGestionAcuerdoComite}" icon=" ui-icon-close"></p:commandButton>
+			</c:if>
+           
+        </f:facet>
+   </p:toolbar>
+    </p:panelGrid>
+</h:form>
+	
+
+
+
+
+</body>
+</html>

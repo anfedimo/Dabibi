@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<h:outputStylesheet library="css" name="./resources/css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<h:form>
+		<p:panel>
+			<f:facet name="header">
+		         Me permito informarle que su obligación presenta los siguientes beneficios:
+		</f:facet>
+
+			<p:menuButton value="Rediferidos">
+				<p:menuitem value="Rediferido"
+					actionListener="#{politicaRediferidoBean.verRediferidoNormal(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'RE',129)}" />
+				<p:menuitem value="Rediferido Tasa Preferencial"
+					actionListener="#{politicaRediferidoBean.verRediferido(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'RE', 143)}" />
+				<p:menuitem value="Rediferido Normal Dolares"
+					actionListener="#{politicaRediferidoBean.verRediferido(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'REDOL',142)}" />
+			</p:menuButton>
+			<p:menuButton value="Condonaciones">
+				<p:menuitem value="Daviacuerdo"
+					actionListener="#{politicaRediferidoBean.metodoDaviacuerdo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'CDAV',131)}" />
+				<p:menuitem value="Pago total consumo"
+					actionListener="#{politicaRediferidoBean.metodoPagoTotalConsumo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'CPTCON',136)}" />
+				<p:menuitem value="Pago total consumo castigado"
+					actionListener="#{politicaRediferidoBean.metodoPagoTotalConsumo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'CPTCC',136)}" />
+				<p:menuitem value="Bono Zanahoria"
+					actionListener="#{politicaRediferidoBean.metodoZanahoria(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'CPZAN',132)}" />
+			</p:menuButton>
+			<p:menuButton value="Normalización">
+				<p:menuitem value="Normalizacion"
+					actionListener="#{politicaRediferidoBean.verNormalizacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'NORM',140)}" />
+				<p:menuitem value="Normalizacion tasa escalonada"
+					actionListener="#{politicaRediferidoBean.verNormalizacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'NORTE',140)}" />
+				<p:menuitem value="Acuerdo de Pago Cartera Castigada Consumo"
+					actionListener="#{politicaRediferidoBean.verNormalizacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'NCS',140)}" />
+				<p:menuitem value="Normalizacion Virtual"
+					actionListener="#{politicaRediferidoBean.verNormalizacionVirtual(1,DetallesObligacionesBean.obligacionHoy.numeroCredito,'NORVIR',145)}" />
+			</p:menuButton>
+
+			<p:menuButton value="Alternativas de Pago">
+				<p:menuitem value="Pago total (sin descuento)"
+					actionListener="#{politicaRediferidoBean.acepto(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" />
+				<p:menuitem value="Pago mínimo"
+					actionListener="#{politicaRediferidoBean.acepto(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" />
+				<p:menuitem value="Saldo mora"
+					actionListener="#{politicaRediferidoBean.acepto(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" />
+				<p:menuitem value="Reestructuración simplificada"
+					actionListener="#{politicaRediferidoBean.verReestructuracionSimplificada(1,'REES')}" />
+				<p:menuitem value="Sin acuerdo"
+					actionListener="#{politicaRediferidoBean.verSinAcuerdo(1)}" />
+			</p:menuButton>
+		</p:panel>
+	</h:form>
+</h:head>
+<body>
+
+</body>
+</html>

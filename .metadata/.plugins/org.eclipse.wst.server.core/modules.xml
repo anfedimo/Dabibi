@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:ExpertisCRMWeb"/>
+  <module moduleId="org.eclipse.jst.jee.server:DaviviendaCRMEjb" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:DaviviendaEAR"/>
+  <module moduleId="org.eclipse.jst.jee.server:DaviviendaCRMWeb" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:ExpertisEAR" serverId="GlassFish 4 [domain1]"/>
+  <module moduleId="org.eclipse.jst.jee.server:ExpertisCRMEjb" serverId="GlassFish 4 [domain1]"/>
+</modules>

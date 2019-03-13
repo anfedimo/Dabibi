@@ -1,0 +1,13 @@
+
+Ysquid:S1148."#Use a logger to log this exception.(А╔╘Е¤    H╒фRMINORZVULNERABILITY
+Zsquid:S1148√"#Use a logger to log this exception.(А╔╘Е¤    H╤фRMINORZVULNERABILITY
+]squid:S00108*")Either remove or fill this block of code.(б╗в№∙    H╥фRMAJORZ
+CODE_SMELL
+\squid:S1125у"(Remove the literal "true" boolean value.(┼▐┐▀√    H╘фRMINORZ
+CODE_SMELL
+dsquid:S1135-"2Complete the task associated to this TODO comment.(╒╠Ро■    H╨фRINFOZ
+CODE_SMELL
+Гsquid:S37769"RRefactor this method to reduce its Cognitive Complexity from 80 to the 15 allowed.(Р╚╛ЄH╧фRCRITICALZ
+CODE_SMELL
+\squid:S1125ш"(Remove the literal "true" boolean value.(┼▐┐▀√    H╙фRMINORZ
+CODE_SMELL

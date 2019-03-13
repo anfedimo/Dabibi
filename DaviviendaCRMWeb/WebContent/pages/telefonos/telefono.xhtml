@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<h:outputStylesheet library="css" name="./resources/css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+	<script>
+		var idcall ="";
+
+		function fun_include_dial(telefono,idcliente) {
+			alert(telefono);
+			$.getJSON('http://localhost:80/apiagentbox?action=dial&amp;phone='
+					+ telefono+'&amp;callback=?').done( function(res) {
+				res=JSON.stringify(res);
+				var status = JSON.parse(res)
+				idcall = status.id_call;
+				console.log("id call dentro "+idcall);
+				$("#idcall").val(idcall);
+				$("#cliente").val(idcliente);
+				$("#"+telefono).css("display", "block");
+			});
+			
+		}
+		
+		function lanzar_gestion(){
+			console.log("Lanzando Nueva Gestion");
+			var idCall= $("#idcall").val();
+			var idCliente= $("#cliente").val();
+			window.open('http://172.16.1.196:38080/DaviviendaCRM/pages/obligacion/obligacion.xhtml?idcliente='+idCliente+'&amp;id_call='+idCall,'_blank');
+		}
+	</script>
+</h:head>
+<body>
+	<input type="hidden" name="idcall" id="idcall"/>
+	<input type="hidden" name="cliente" id="cliente"/>
+	<p:panel id="pnlTelefonos">
+	<h:form >
+		<p:dataTable var="telefonos" value="#{DatosAdicionalesBean.telefonos}"
+			emptyMessage="No tiene Telfonos Asociados">
+			<p:column headerText="IdCliete">
+				<h:outputText value="#{telefonos.idcliente}" />
+			</p:column>
+			<p:column headerText="Tipo de Telefono">
+				<h:outputText value="#{telefonos.tipo}" />
+			</p:column>
+			<p:column headerText="Número de Telefono">
+				<h:outputText value="#{telefonos.telefono}" />
+			</p:column>
+			<p:column headerText="Marcar">
+
+				<p:commandButton ajax="false" id="buttonDetallePriorizacion" icon="fa fa-phone"
+					onclick="fun_include_dial(#{telefonos.telefono},#{clienteBean.cliente.idcliente})" >
+					<f:setPropertyActionListener value="#{telefonos.telefono}"
+						target="#{clienteBean.telefonoMarcado}"></f:setPropertyActionListener>
+				</p:commandButton>
+				
+				<input type="button" value="Gestionar" onclick="lanzar_gestion()" style="display:none;margin-left: 39%;margin-top: -29%;height: 21.5px;background: #f5f5f5;border-color: #f5f5f5;color: #484444" id="${telefonos.telefono}"></input>
+			</p:column>
+
+
+
+		</p:dataTable>
+	</h:form>
+	</p:panel>
+
+</body>
+</html>

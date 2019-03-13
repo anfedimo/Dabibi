@@ -1,0 +1,7 @@
+
+‡squid:S00116"XRename this field "dc_davivienda" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ŽûûHËÞRMINORZ
+CODE_SMELL
+Œsquid:S00116"XRename this field "dg_davivienda" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úžƒ¬úÿÿÿÿHÌÞRMINORZ
+CODE_SMELL
+ƒsquid:UselessImportCheck"CRemove this unused import 'co.sistemcobro.davivienda.bean.Gestion'.(Íš€àùÿÿÿÿHÍÞRMINORZ
+CODE_SMELL

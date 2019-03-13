@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+	<h:form>
+		<p:panel>
+			<f:facet name="header">
+		       Obligación no.
+		         <h:outputText
+					value="#{DetallesObligacionesBean.obligacionHoy.numeroCredito}" />
+			</f:facet>
+
+			<p:row>
+				<p:column>
+					<h:outputText value="Resultado:" />
+				</p:column>
+				<p:column>
+					<h:outputText
+						value="Se lista los resultados que apliquen a la tipificación seleccionada" />
+				</p:column>
+				<br />
+				<p:column>
+					<p:selectOneMenu id="slcTipificacion"
+						value="#{politicaRediferidoBean.selectedTipificacion}"
+						style="width:150px" required="true" label="tipificación"
+						requiredMessage="Por favor seleccione la tipificación">
+						<f:validateRegex pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s,\.]+$" />
+						<f:selectItem itemLabel="Selecione tipificación" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems var="tipificacion"
+							value="#{politicaRediferidoBean.listaTipificaciones}"
+							itemValue="#{tipificacion.idTipificacionTipo}"
+							itemLabel="#{tipificacion.nombreTipificacion}" />
+						<p:message for="slcTipificacion" />
+					</p:selectOneMenu>
+				</p:column>
+			</p:row>
+			<br />
+			<p:row>
+				<p:column>
+					<h:outputLabel value="Observaciones:" for="txtObservaciones" />
+				</p:column>
+				<br />
+				<p:column>
+					<h:outputText id="txtObservaciones"
+						value="#{politicaRediferidoBean.observacion}">
+					</h:outputText>
+				</p:column>
+			</p:row>
+
+			<p:panel id="pnlCampos" style="width:100%">
+				<c:if test="#{politicaRediferidoBean.esDaviacuerdo == 1 }">
+					<ui:include src="../../pages/davieacuerdo/campos_daviacuerdo.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.esPagoTotal == 1 }">
+					<ui:include src="../../pages/davieacuerdo/campos_pago_total.xhtml" />
+				</c:if>
+
+				<c:if test="#{politicaRediferidoBean.esPagoZanahoria == 1 }">
+					<ui:include
+						src="../../pages/davieacuerdo/campos_plan_zanahoria.xhtml " />
+				</c:if>
+			</p:panel>
+
+			<p:row>
+				<p:column>
+					<p:outputLabel
+						value="No pueden realizarse acuerdos posteriores a la fecha del:" />
+					<h:outputText value="#{politicaRediferidoBean.fechaUltimoAcuerdo}">
+					</h:outputText>
+				</p:column>
+			</p:row>
+
+			<p:panel style="width:100%">
+				<table>
+					<tbody>
+						<tr>
+							<td><p:outputLabel for="fecha" value="Fecha promesa:" /></td>
+							<td><p:calendar id="fecha" size="32"
+									value="#{politicaRediferidoBean.fechaPromesa}" required="true"
+									requiredMessage="Por favor ingrese la fecha">
+									<p:message for="fecha" />
+								</p:calendar></td>
+						</tr>
+						<tr>
+							<td><p:outputLabel value="Valor promesa: " for="number" /></td>
+							<td><p:inputNumber id="number" size="32"
+									value="#{politicaRediferidoBean.valorPromesa}"
+									required="true"
+									requiredMessage="Por favor ingrese el valor de la promesa"
+									decimalSeparator="," thousandSeparator=".">
+									<p:watermark for="number" value="valor de la promesa" />
+									<p:message for="number" />
+								</p:inputNumber></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="Observaciones:"
+									for="txtObservaciones1" /></td>
+							<td><p:inputTextarea   id="txtObservaciones1" rows="6"
+									cols="33" value="#{politicaRediferidoBean.observacion}"
+									required="true" size="25"
+									requiredMessage="Por favor ingrese la observación"
+									validatorMessage="Formato invalido observación">
+									<f:validateRegex pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s,\.]+$" />
+									<p:watermark for="txtObservaciones1" value="Observaciones" />
+									<p:message for="txtObservaciones1" />
+								</p:inputTextarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</p:panel>
+
+			<ui:include
+				src="../../pages/obligacion/tablaHistoricoObligacion.xhtml" />
+
+			<p:row>
+				<p:column>
+					<p:outputLabel value=" ¿Desea agendar llamada? " />
+				</p:column>
+
+				<p:column>
+					<c:choose>
+						<c:when test="#{politicaRediferidoBean.esDaviacuerdo == 1 }">
+							<p:commandButton  value="Si"
+								action="#{politicaRediferidoBean.aceptoAgendamientoMetodoDaviacuerdo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+								update="growl" />
+						</c:when>
+						<c:when test="#{politicaRediferidoBean.esPagoTotal == 1 }">
+							<p:commandButton  value="Si"
+								action="#{politicaRediferidoBean.aceptoAgendamientoMetodoPagoTotal(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+								update="growl" />
+						</c:when>
+						<c:when test="#{politicaRediferidoBean.esPagoZanahoria == 1 }">
+							<p:commandButton  value="Si"
+								action="#{politicaRediferidoBean.aceptoAgendamientoMetodoPagoZanahoria(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+								update="growl" />
+						</c:when>
+						<c:otherwise>
+							<p:commandButton  value="Si"
+								action="#{politicaRediferidoBean.aceptoAgendamientoMetodoConValidacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+								update="growl" />
+						</c:otherwise>
+					</c:choose>
+				</p:column>
+
+				<p:column>
+					<p:commandButton value="No"
+						action="#{politicaRediferidoBean.agendamiento(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+						update="growl" />
+				</p:column>
+			</p:row>
+		</p:panel>
+	</h:form>
+
+</body>
+</html>

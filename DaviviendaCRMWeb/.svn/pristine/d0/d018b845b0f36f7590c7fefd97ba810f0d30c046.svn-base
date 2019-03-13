@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<h:outputStylesheet library="css" name="./resources/css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+</h:head>
+<body>
+<h:form id="frmTablaFacturas">
+	<p:panel id="pnlSolicitudFactura">
+		<p:panelGrid columns="2" border="1" cellpadding="10" cellspacing="1"
+			style="width: 100%"
+			columnClasses="forty-percent top-alignment, sixty-percent top-alignment">
+			<f:facet name="header">
+				<h:outputText value="Solicitud Factura:" />
+			</f:facet>
+
+			<h:outputText value="Correo Destino:" />
+			<h:inputText placeholder="Ingrese el correo"  value="#{SolicitudFacturaBean.correoDestino}" style="width: 100%" />
+			<h:outputText value="Observacion:" />
+			<p:inputTextarea   value="#{SolicitudFacturaBean.observacionAsesor}" rows="5" cols="30" style="width: 100%"
+				maxlength="200" autoResize="false" />
+
+		</p:panelGrid>  
+
+	</p:panel>
+
+	<p:panel id="pnlFactura">	
+
+			<p:dataTable id="TableFacturas" var="solicitudFacturaBean"
+				value="#{SolicitudFacturaBean.listObligaciones}"
+				selection="#{SolicitudFacturaBean.listFacturasSeleccionadas}"
+				rowKey="#{solicitudFacturaBean.factura}" style="margin-bottom:0">
+				<f:facet name="header">
+            Facturas Del Cliente:
+        </f:facet>
+				<p:column selectionMode="multiple"
+					style="width:16px;text-align:center" />
+				<p:column headerText="Factura">
+					<h:outputText value="#{solicitudFacturaBean.factura}" />
+				</p:column>
+
+				<p:column headerText="Fecha de Vencimiento">
+					<h:outputText value="#{solicitudFacturaBean.fechaVencimiento}" />
+				</p:column>
+
+				<p:column headerText="Dias Mora">
+					<h:outputText value="#{solicitudFacturaBean.diasMora}" />
+				</p:column>
+
+				<p:column headerText="Valor Factura + Iva">
+					<h:outputText value="#{solicitudFacturaBean.valorFacturaIva}" />
+				</p:column>
+				<f:facet name="footer">
+								<p:commandButton
+								action="#{SolicitudFacturaBean.insertarsolicitudfactura}"
+								 icon="ui-icon-search" value="Enviar"
+								oncomplete="PF('FacturasSeleccionadasDialog').show()"
+								update="facturasSeleccionadas" />						
+				</f:facet>
+			</p:dataTable>
+
+			</p:panel>
+		</h:form>
+	
+
+</body>
+</html>

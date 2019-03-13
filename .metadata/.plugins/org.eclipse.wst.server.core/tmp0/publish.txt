@@ -1,0 +1,4 @@
+#GlassFish 3
+#Tue Mar 12 09:55:31 COT 2019
+org.eclipse.jst.jee.server\:ExpertisEAR=D\:\\glassfish-4.0\\glassfish4\\glassfish\\domains\\domain1\\eclipseApps\\ExpertisEAR
+org.eclipse.jst.jee.server\:DaviviendaEAR=D\:\\glassfish-4.0\\glassfish4\\glassfish\\domains\\domain1\\eclipseApps\\DaviviendaEAR

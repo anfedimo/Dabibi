@@ -1,0 +1,63 @@
+
+‡squid:S1192"VDefine a constant instead of duplicating this literal " id del registro.... " 6 times.(©ÓFHÖäRCRITICALZ
+CODE_SMELL
+zsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(ÍÿúÌÿÿÿÿÿH×äRMAJORZ
+CODE_SMELL
+isquid:S1854†"5Remove this useless assignment to local variable "t".(Šİ¸®ıÿÿÿÿHØäRMAJORZ
+CODE_SMELL
+“squid:S1149ê"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(º€ÌğşÿÿÿÿHÙäRMAJORZ
+CODE_SMELL
+isquid:S1854ˆ"5Remove this useless assignment to local variable "t".(°£Š½ùÿÿÿÿHÚäRMAJORZ
+CODE_SMELL
+l
+squid:S106“"9Replace this use of System.out or System.err by a logger.(‹·¸êûÿÿÿÿHÛäRMAJORZ
+CODE_SMELL
+‰squid:S3776‘"RRefactor this method to reduce its Cognitive Complexity from 90 to the 15 allowed.(§»ÏˆüÿÿÿÿHÜäRCRITICALZ
+CODE_SMELL
+vsquid:S00112š"FDefine and throw a dedicated exception instead of using a generic one.(ã¤ÇóHİäRMAJORZ
+CODE_SMELL
+’squid:S1149*"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(º€ÌğşÿÿÿÿHŞäRMAJORZ
+CODE_SMELL
+‰squid:S3776"SRefactor this method to reduce its Cognitive Complexity from 127 to the 15 allowed.(ÍÿúÌÿÿÿÿÿHßäRCRITICALZ
+CODE_SMELL
+vsquid:S00112ƒ"FDefine and throw a dedicated exception instead of using a generic one.(Ä¥áòHàäRMAJORZ
+CODE_SMELL
+squid:S1192’"JDefine a constant instead of duplicating this literal " ip..... " 6 times.(Ô¦‘âøÿÿÿÿHáäRCRITICALZ
+CODE_SMELL
+“squid:S1149˜"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(º€ÌğşÿÿÿÿHâäRMAJORZ
+CODE_SMELL
+l
+squid:S106ä"9Replace this use of System.out or System.err by a logger.(‹·¸êûÿÿÿÿHãäRMAJORZ
+CODE_SMELL
+squid:S1192!"KDefine a constant instead of duplicating this literal "insertando" 3 times.(‹·¸êûÿÿÿÿHääRCRITICALZ
+CODE_SMELL
+vsquid:S00112Ê"FDefine and throw a dedicated exception instead of using a generic one.(Ä¥áòHåäRMAJORZ
+CODE_SMELL
+{squid:S00112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(™ÚÊºüÿÿÿÿHæäRMAJORZ
+CODE_SMELL
+isquid:S1854‚"5Remove this useless assignment to local variable "t".(·á¤ÉÿÿÿÿÿHçäRMAJORZ
+CODE_SMELL
+{squid:S00112â"FDefine and throw a dedicated exception instead of using a generic one.(œÅ¬îıÿÿÿÿHèäRMAJORZ
+CODE_SMELL
+dsquid:S1854ÿ"5Remove this useless assignment to local variable "t".(–è±ŠHéäRMAJORZ
+CODE_SMELL
+|squid:S1192"KDefine a constant instead of duplicating this literal " fecha...." 6 times.(©ÓFHêäRCRITICALZ
+CODE_SMELL
+{squid:S00112¬"FDefine and throw a dedicated exception instead of using a generic one.(½ÁšãùÿÿÿÿHëäRMAJORZ
+CODE_SMELL
+squid:S1192 "KDefine a constant instead of duplicating this literal "Insertando" 3 times.(¿Ò²ûÿÿÿÿHìäRCRITICALZ
+CODE_SMELL
+g
+squid:S106®"9Replace this use of System.out or System.err by a logger.(çÃâ”HíäRMAJORZ
+CODE_SMELL
+{squid:S00112”"FDefine and throw a dedicated exception instead of using a generic one.(½¹é”ùÿÿÿÿHîäRMAJORZ
+CODE_SMELL
+dsquid:S1854Á"5Remove this useless assignment to local variable "t".(á¢ßÈHïäRMAJORZ
+CODE_SMELL
+“squid:S1149µ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(º€ÌğşÿÿÿÿHğäRMAJORZ
+CODE_SMELL
+k
+squid:S106!"9Replace this use of System.out or System.err by a logger.(‹·¸êûÿÿÿÿHñäRMAJORZ
+CODE_SMELL
+vsquid:S00112‰"FDefine and throw a dedicated exception instead of using a generic one.(öŒö¾HòäRMAJORZ
+CODE_SMELL

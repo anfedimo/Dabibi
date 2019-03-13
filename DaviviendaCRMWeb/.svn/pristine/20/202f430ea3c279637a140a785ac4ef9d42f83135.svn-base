@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+	<h:form id="camposPlanZanahoria">
+		<p:panelGrid colspan="4">
+			<p:row>
+				<p:column>
+					<p:outputLabel value="Abono zanahoria:" for="txtAbonoZanahoria" />
+				</p:column>
+				
+				<p:column>
+					<p:inputNumber id="txtAbonoZanahoria"
+						value="#{politicaRediferidoBean.abonoZanahoria}" required="true"
+						requiredMessage="Por favor ingrese el abono zanahoria"
+						decimalSeparator="," thousandSeparator=".">
+						<p:watermark for="txtAbonoZanahoria" value="abono zanahoria" />
+						<p:message for="txtAbonoZanahoria" />
+					</p:inputNumber>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputText value="Bono zanahoria:" />					
+				</p:column>
+				
+				<p:column>
+					<p:inputText  readonly="true" value="#{politicaRediferidoBean.bonoZanahoria}" />
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+	</h:form>
+
+</body>
+</html>

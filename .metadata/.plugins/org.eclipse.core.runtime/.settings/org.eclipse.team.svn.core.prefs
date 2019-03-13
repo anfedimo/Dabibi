@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/404b5f9d452e00191c40ed60d966f70c=404b5f9d452e00191c40ed60d966f70c;http\://172.16.1.60/repositorio;http\://172.16.1.60/repositorio;branches;tags;trunk;true;c5c58736-11ae-4ad1-b608-4b15e0b7ecd6;http\://172.16.1.60/repositorio;;false;<http\://172.16.1.60\:80> SVN repositorio;;0

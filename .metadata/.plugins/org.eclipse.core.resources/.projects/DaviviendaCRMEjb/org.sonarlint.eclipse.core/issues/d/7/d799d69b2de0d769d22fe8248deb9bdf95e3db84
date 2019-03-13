@@ -1,0 +1,57 @@
+
+ƒsquid:S00100ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†´€˜ùÿÿÿÿHÛÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îÿ¿şşÿÿÿÿHÜÛRMINORZ
+CODE_SMELL
+~squid:S00100ú"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıÚÔHİÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100ş"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é÷û®ıÿÿÿÿHŞÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100Š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íßïÑÿÿÿÿÿHßÛRMINORZ
+CODE_SMELL
+~squid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Öß‚HàÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100’"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¨éÖÿÿÿÿÿHáÛRMINORZ
+CODE_SMELL
+~squid:S00100–"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó¡–ãHâÛRMINORZ
+CODE_SMELL
+~squid:S00100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°íøıHãÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÇÃ…îûÿÿÿÿHäÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100¢"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñì¤ÎÿÿÿÿÿHåÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100¦"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ‘ŠøÿÿÿÿHæÛRMINORZ
+CODE_SMELL
+¦squid:S1845`"wRename field "easycodealtitude" to prevent any misunderstanding/clash with field "easyCodeAltitude" defined on line 46.(”¯œmHçÛRBLOCKERZ
+CODE_SMELL
+·squid:S1845º"€Rename method "getEasyCodeAltitude" to prevent any misunderstanding/clash with method "getEasycodealtitude" defined on line 402.(’ù½øÿÿÿÿHèÛRBLOCKERZ
+CODE_SMELL
+²squid:S1845¾"€Rename method "setEasyCodeAltitude" to prevent any misunderstanding/clash with method "setEasycodealtitude" defined on line 406.(ıÃÜHéÛRBLOCKERZ
+CODE_SMELL
+‹squid:S00116l"WRename this field "entidad_otro" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö—¿ŒÿÿÿÿÿHêÛRMINORZ
+CODE_SMELL
+squid:S00116m"YRename this field "formapago_otro" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î‰ü°şÿÿÿÿHëÛRMINORZ
+CODE_SMELL
+Œsquid:S00116o"]Rename this field "porcentaje_capital" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿«™¦HìÛRMINORZ
+CODE_SMELL
+Œsquid:S00116p"]Rename this field "porcentaje_interes" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÇïùHíÛRMINORZ
+CODE_SMELL
+‡squid:S00116q"XRename this field "valor_capital" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª°®ßHîÛRMINORZ
+CODE_SMELL
+‡squid:S00116r"XRename this field "valor_interes" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç»È·HïÛRMINORZ
+CODE_SMELL
+†squid:S00117ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îÿ¿şşÿÿÿÿHğÛRMINORZ
+CODE_SMELL
+†squid:S00117ş"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é÷û®ıÿÿÿÿHñÛRMINORZ
+CODE_SMELL
+squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Öß‚HòÛRMINORZ
+CODE_SMELL
+squid:S00117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó¡–ãHóÛRMINORZ
+CODE_SMELL
+†squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÇÃ…îûÿÿÿÿHôÛRMINORZ
+CODE_SMELL
+†squid:S00117¦"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ‘ŠøÿÿÿÿHõÛRMINORZ
+CODE_SMELL
+fsquid:UselessImportCheck"+Remove this unused import 'java.util.Date'.(¸…¼üHöÛRMINORZ
+CODE_SMELL

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;auxiliar.xhtml&apos; to &apos;co.sistemcobro.davivienda.dao.MemoDAO.java&apos;&#x0D;&#x0A;- Original project: &apos;ExpertisCRMWeb&apos;&#x0D;&#x0A;- Destination element: &apos;co.sistemcobro.davivienda.dao.MemoDAO.java&apos;&#x0D;&#x0A;- Original element: &apos;auxiliar.xhtml&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="=DaviviendaCRMEjb/ejbModule&lt;co.sistemcobro.davivienda.dao{MemoDAO.java" element1="WebContent/pages/auxiliar/auxiliar.xhtml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1537202841671" units="0" version="1.0"/>
+</session>

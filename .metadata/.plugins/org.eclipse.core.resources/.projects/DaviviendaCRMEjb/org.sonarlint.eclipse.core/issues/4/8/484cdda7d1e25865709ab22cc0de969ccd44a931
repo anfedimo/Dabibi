@@ -1,0 +1,13 @@
+
+Œsquid:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(¦õÅóøÿÿÿÿHœæRMINORZ
+CODE_SMELL
+usquid:S00112Q"FDefine and throw a dedicated exception instead of using a generic one.(¡²€•HæRMAJORZ
+CODE_SMELL
+zsquid:S00112W"FDefine and throw a dedicated exception instead of using a generic one.(‰ÍğıøÿÿÿÿHæRMAJORZ
+CODE_SMELL
+zsquid:S001122"FDefine and throw a dedicated exception instead of using a generic one.(…ÄùñşÿÿÿÿHŸæRMAJORZ
+CODE_SMELL
+hsquid:S1854F"5Remove this useless assignment to local variable "t".(Ã®ÛäøÿÿÿÿH æRMAJORZ
+CODE_SMELL
+‰squid:S00116"ZRename this field "SQL_BUSCAR_PAGO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ø‚áH¡æRMINORZ
+CODE_SMELL

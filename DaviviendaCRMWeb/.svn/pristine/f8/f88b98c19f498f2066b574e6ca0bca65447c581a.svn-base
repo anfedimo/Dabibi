@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+	<h:form>
+		<p:panelGrid>
+			<p:panel>
+				<f:facet name="header">
+		       Información del acuerdo - especial: 
+		       	 <h:outputText
+						value="#{DetallesObligacionesBean.obligacionHoy.numeroCredito}" />
+				</f:facet>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Plazo (meses):" for="meses" />
+					</p:column>
+					<p:column>
+						<p:selectOneMenu id="meses"
+							value="#{politicaRediferidoBean.selectedMeses}"
+							style="width:100px" size="40" required="true" label="meses"
+							requiredMessage="Por favor seleccione los meses">
+							<f:selectItem itemLabel="Selecione plazo" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems value="#{politicaRediferidoBean.plazoMeses}" />
+							<p:message for="meses" />
+						</p:selectOneMenu>
+					</p:column>
+					<p:column>
+						<h:outputText value="TRM:" />
+					</p:column>
+					<p:column>
+						<p:inputText  readonly="true" size="18"
+							value="#{politicaRediferidoBean.dolar.valor}" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Saldo total:" />
+					</p:column>
+					<p:column>
+						<p:inputText  readonly="true"
+							value="#{politicaRediferidoBean.rediferido.saldoDolares}"
+							size="18">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</p:inputText>
+					</p:column>
+					<p:column>
+						<h:outputText value="Saldo total en pesos:" />
+					</p:column>
+					<p:column>
+						<p:inputText  readonly="true"
+							value="#{politicaRediferidoBean.valorSaldoDolar}" size="18">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</p:inputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Pago mínimo inicial:" />
+					</p:column>
+					<p:column>
+						<p:inputText  readonly="true"
+							value="#{politicaRediferidoBean.rediferido.pagoMinDolares}"
+							size="18">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</p:inputText>
+					</p:column>
+
+					<p:column>
+						<h:outputText value="Pago mínimo en pesos:" />
+					</p:column>
+					<p:column>
+						<p:inputText  readonly="true"
+							value="#{politicaRediferidoBean.valorMinDolar}" size="18">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</p:inputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Mora dólares:" for="txtMoraDolares" />
+					</p:column>
+					<p:column>
+						<p:inputNumber id="txtMoraDolares" value="#{politicaRediferidoBean.moraDolares}"
+							size="18" decimalSeparator="," thousandSeparator="."
+							required="true"
+							requiredMessage="Por favor ingrese la mora en dólares">
+							<p:watermark for="txtMoraDolares" value="Mora en dólares" />
+							<p:message for="txtMoraDolares" />
+						</p:inputNumber>
+					</p:column>
+
+					<p:column>
+						<h:outputLabel value="Mora en pesos:" for="txtMoraPesos" />
+					</p:column>
+					<p:column>
+						<p:inputText  id="txtMoraPesos" readonly="true"
+							value="#{politicaRediferidoBean.valorMoraDolar}" size="18">
+						</p:inputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Pago cliente:" for="txtPagoCliente" />
+					</p:column>
+					<p:column>
+						<p:inputNumber id="txtPagoCliente"
+							value="#{politicaRediferidoBean.valorPromesa}" size="18"
+							decimalSeparator="," thousandSeparator="." required="true"
+							requiredMessage="Por favor ingrese el pago del cliente"
+							validatorMessage="Formato invalido pago cliente">
+							<p:watermark for="txtPagoCliente" value="Pago cliente" />
+							<p:message for="txtPagoCliente" />
+						</p:inputNumber>
+					</p:column>
+
+					<p:column>
+						<h:outputLabel value="Pago cliente pesos:" for="txtPagoClientePesos" />
+					</p:column>
+					<p:column>
+						<p:inputNumber id="txtPagoClientePesos"
+							value="#{politicaRediferidoBean.pagoCliente}" size="18"
+							decimalSeparator="," thousandSeparator="." required="true"
+							requiredMessage="Por favor ingrese el pago del cliente en pesos"
+							validatorMessage="Formato invalido pago cliente en pesos">
+							<p:watermark for="txtPagoClientePesos" value="Pago cliente pesos" />
+							<p:message for="txtPagoClientePesos" />
+						</p:inputNumber>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Tasa mensual:" />
+					</p:column>
+					<p:column>
+						<p:inputText  value="#{politicaRediferidoBean.tasaMenusal}"
+							size="18" />
+					</p:column>
+
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<p:commandButton ajax="false" value="Aceptar el acuerdo"
+							action="#{politicaRediferidoBean.aceptoReddiferido(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+							update="growl" />
+					</p:column>
+
+					<p:column>
+						<p:commandButton ajax="false" value="Rechazar el acuerdo"
+							action="#{politicaRediferidoBean.verSinAcuerdoRediferido(1)}"
+							update="growl" />
+					</p:column>
+				</p:row>
+			</p:panel>
+		</p:panelGrid>
+	</h:form>
+</body>
+</html>

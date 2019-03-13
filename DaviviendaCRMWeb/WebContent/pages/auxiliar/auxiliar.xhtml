@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<script>
+		function fun_include_aux(letra) {
+
+			$.getJSON('http://localhost:80/apiagentbox?action=' + letra,
+					function(res) {
+						res = JSON.stringify(res);
+						var status = JSON.parse(res);
+					});
+		}
+	</script>
+
+</h:head>
+<body>
+	<h:form id="frmAuxiliares">
+		<p:panel id="pnlAux">
+
+			<p:messages id="msgAux" autoUpdate="false" closable="true"
+				showDetail="true" />
+
+			<h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5">
+				<h:outputText value="Estado:" />
+
+
+				<p:selectOneMenu value="#{estadosAuxiliaresBean.idestado}"
+					id="slcEstadoAux" style="width:400px">
+					<f:selectItem itemLabel="Seleccione..." itemValue="" />
+					<f:selectItems value="#{estadosAuxiliaresBean.estados}"
+						var="estado" itemLabel="#{estado.nombre}" itemValue="#{estado.id}"></f:selectItems>
+				</p:selectOneMenu>
+				<p:commandButton ajax="false" value="Iniciar AUX"
+					onclick="fun_include_aux('acw')" id="btnIni"
+					disabled="#{estadosAuxiliaresBean.ini}">
+					<p:ajax listener="#{estadosAuxiliaresBean.guardarAux}"
+						process="@form" update="frmAuxiliares:pnlAux" />
+				</p:commandButton>
+				<p:commandButton ajax="false" value="Volver a READY"
+					onclick="fun_include_aux('redy')" id="btnFIn"
+					disabled="#{estadosAuxiliaresBean.fin}">
+					<p:ajax listener="#{estadosAuxiliaresBean.actualizarAux}"
+						process="@form" update="frmAuxiliares:pnlAux" />
+				</p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+	<h:form id="beneficios">
+		<p:panelGrid rendered="true">
+			<f:facet name="header">
+		         Me permito informarle que su obligación presenta los siguientes beneficios:
+		    </f:facet>
+
+			<div class="ui-g">
+				<div class="ui-g-8 ui-g-nopad">
+					<div class="ui-g-4">
+						Rediferidos <br />
+						<p:commandButton value="Rediferido" action="#{politicaRediferidoBean.verRediferido(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />					
+						<p:commandButton value="Rediferido Tasa Preferencial" action="#{politicaRediferidoBean.verRediferido(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />
+						<p:commandButton value="Rediferido Normal Dolares" action="#{politicaRediferidoBean.verRediferido(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />				
+					</div>
+					<div class="ui-g-4">
+						Condonación <br />
+						<p:commandButton value="Daviacuerdo" action="#{politicaRediferidoBean.metodoDaviacuerdo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star"	/>
+						<br />
+						<p:commandButton value="Pago total consumo" action="#{politicaRediferidoBean.metodoPagoTotalConsumo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />						
+						<br />
+						<p:commandButton value="Pago total consumo castigado" action="#{politicaRediferidoBean.metodoPagoTotalConsumo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />
+						<br />
+						<p:commandButton value="Bono Zanahoria" action="#{politicaRediferidoBean.metodoZanahoria(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />
+					</div>
+					<div class="ui-g-4">
+						Normalización <br />
+						<p:commandButton value="Normalizacion" action="#{politicaRediferidoBean.verNormalizacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />
+						<p:commandButton value="Normalizacion tasa escalonada" action="#{politicaRediferidoBean.verNormalizacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />
+						<p:commandButton value="Acuerdo de Pago Cartera Castigada Consumo" action="#{politicaRediferidoBean.verNormalizacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />
+						<p:commandButton value="Normalizacion Virtual" action="#{politicaRediferidoBean.verNormalizacionVirtual(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" icon="ui-icon-star" />						
+					</div>
+				</div>
+			</div>
+		</p:panelGrid>
+	</h:form>
+
+</body>
+</html>

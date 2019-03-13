@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+	<h:form>
+		<p:panelGrid>
+			<p:panel>
+				<f:facet name="header">
+		       Información del acuerdo - especial: 
+		       	 <h:outputText
+						value="#{DetallesObligacionesBean.obligacionHoy.numeroCredito}" />
+				</f:facet>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Plazo (meses):" for="meses" />
+					</p:column>
+					<p:column>
+						<p:selectOneMenu id="meses" size="18"
+							value="#{politicaRediferidoBean.selectedMeses}"
+							required="true" label="meses"
+							requiredMessage="Por favor seleccione los meses">
+							<f:selectItem itemLabel="Selecione plazo" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems value="#{politicaRediferidoBean.plazoMeses}" />
+							<p:ajax event="change"
+								listener="#{politicaRediferidoBean.obtenerSimulador(DetallesObligacionesBean.obligacionHoy.idRediferido)}"
+								process="meses" update="simuladorCuotas" />
+							<p:message for="meses" />
+						</p:selectOneMenu>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Saldo total:" />
+					</p:column>
+					<p:column>
+						<p:inputText  readonly="true" size="18"
+							value="#{politicaRediferidoBean.valorSaldoDolar}">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</p:inputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Pago mínimo inicial:" />
+					</p:column>
+					<p:column>
+						<p:inputText  readonly="true" size="18"
+							value="#{politicaRediferidoBean.valorMinDolar}">
+							<f:convertNumber pattern="¤#,##0.00" currencySymbol="$" />
+						</p:inputText>
+					</p:column>
+				</p:row>
+
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Pago cliente:" for="txtPagoCliente" />
+					</p:column>
+					<p:column>
+						<p:inputNumber id="txtPagoCliente"
+							value="#{politicaRediferidoBean.valorPromesa}"
+							label="mensaje tercero" size="18"
+							required="true"
+							requiredMessage="Por favor ingrese el pago del cliente"
+							validatorMessage="Formato invalido pago cliente"
+							decimalSeparator="," thousandSeparator=".">
+							<p:watermark for="txtPagoCliente" value="Pago cliente" />
+							<p:message for="txtPagoCliente" />
+						</p:inputNumber>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Tasa mensual:" />
+					</p:column>
+					<p:column>
+						<p:inputText  size="18" id="dd" value="#{politicaRediferidoBean.tasaMenusal}">
+						</p:inputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<p:commandButton ajax="false" value="Aceptar el acuerdo" validateClient="true"
+							action="#{politicaRediferidoBean.aceptoNormalizacion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+							update="growl" />
+					</p:column>
+
+					<p:column>
+						<p:commandButton ajax="false" value="Rechazar el acuerdo"
+							action="#{politicaRediferidoBean.verSinAcuerdoNormalizacion(1)}"
+							update="growl" />
+					</p:column>
+				</p:row>
+			</p:panel>
+		</p:panelGrid>
+	</h:form>
+
+	<ui:include src="/pages/simulador/simulador.xhtml" />
+</body>
+</html>

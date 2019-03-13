@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<h:outputStylesheet library="css" name="./resources/css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<script>
+		var idcall ="";
+
+		function fun_include_dial(telefono,idcliente) {
+			var telContactabilidad = $("#idLlamadaContactabilidad").val();
+			console.log('telefono contactabilidad');
+			console.log(telContactabilidad);
+			var telNuevo = "9"+telefono;
+			alert(telNuevo);
+			$.getJSON('http://localhost:80/apiagentbox?action=dial&amp;phone='
+					+telNuevo+'&amp;callback=?').done( function(res) {
+				res=JSON.stringify(res);
+				var status = JSON.parse(res)
+				idcall = status.id_call;
+				console.log("id call dentro "+idcall);
+				$("#idcall").val(idcall);
+				$("#cliente").val(idcliente);
+				$("#"+telefono).css("display", "block");
+			});			
+		}
+	</script>
+
+
+</h:head>
+<body>
+	<h:form id="frmLlamar">
+
+		<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+
+		<p:panel style="width: 100%;" id="panelLlamar">
+			<f:facet name="header">
+				<p:row>
+					<p:column colspan="8">Realizar Llamadas</p:column>
+				</p:row>
+			</f:facet>
+
+
+			<div class="ui-g">
+				<div class="ui-g-12 ui-g-nopad">
+					<div class="ui-g-6">
+						<p:column colspan="1" style="font-weight: bold;">
+							<h:outputText value="Llamada teléfono autorizado:"
+								style="width:12;" />
+						</p:column>
+						<p:column>
+							<p:inputText  readonly="true" id="telefonoAutorizado"
+								value="#{llamadaBean.telefonoAsignacion}" />
+						</p:column>
+						<p:column>
+							<p:commandButton id="idLlamadaAutorizada" value="Llamar"
+								onclick="fun_include_dial(#{llamadaBean.telefonoAsignacion},#{clienteBean.cliente.identificacion})">
+								<f:setPropertyActionListener
+									value="#{llamadaBean.telefonoAsignacion}"
+									target="#{clienteBean.telefonoMarcado}" />
+							</p:commandButton>
+						</p:column>
+					</div>
+					<div class="ui-g-6">
+						<p:column colspan="1" style="font-weight: bold;">
+							<h:outputText value="Protección de datos personales:"
+								style="width:12;" />
+						</p:column>
+						<p:column>
+							<p:inputText  id="telefonoContactabilidad"
+								value="#{llamadaBean.telefonoContactabilidad}">
+							</p:inputText>
+						</p:column>
+						<p:column>
+							<p:commandButton id="idLlamadaContactabilidad" icon="fa fa-phone"
+								onclick="fun_include_dial(#{llamadaBean.telefonoContactabilidad},#{clienteBean.cliente.identificacion})">
+								<f:setPropertyActionListener
+									value="#{llamadaBean.telefonoContactabilidad}"
+									target="#{clienteBean.telefonoMarcado}" />
+								<p:resetInput target="frmLlamar" />
+							</p:commandButton>
+							<p:commandButton ajax="false" value="Limpiar"
+								action="#{llamadaBean.limpiarCampoContactabilidad}" />
+						</p:column>
+					</div>
+				</div>
+			</div>
+
+		</p:panel>
+
+		<p:panel id="panelLlamarAsignacion">
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-6">
+					<h:outputText value="Teléfonos en la asignación:" style="width:12;" />
+
+					<p:dataTable var="telAsignacion"
+						value="#{llamadaBean.telefonosAsignacion}" scrollable="true"
+						scrollHeight="150" scrollWidth="515" reflow="true"
+						emptyMessage="No tiene registros de Telefonos en la asignación!">
+
+						<p:column headerText="Sel" style="width:32px; text-align: center">
+							<p:commandButton
+								action="#{llamadaBean.pasarTelefonoAsignacion(telAsignacion.telefono)}"
+								ajax="true" icon="ui-icon-search" title="llamar" />
+						</p:column>
+
+						<p:column headerText="Telefono">
+							<h:outputText value="#{telAsignacion.telefono}" />
+						</p:column>
+
+						<p:column headerText="Descripción">
+							<h:outputText value="#{telAsignacion.etiqueta}" />
+						</p:column>
+					</p:dataTable>
+
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-6">
+					<h:outputText
+						value="Probabilidad de contactabilidad de 
+					un teléfono basado en el histórico de gestiones:"
+						style="width:12;" />
+
+					<p:dataTable var="telHistoricoGestion"
+						value="#{llamadaBean.telefonosContactabilidad}" scrollable="true"
+						scrollHeight="150" scrollWidth="515" reflow="true"
+						emptyMessage="No tiene registros de Telefonos en la asignación!">
+
+						<p:column headerText="Sel" style="width:32px; text-align: center">
+							<p:commandButton
+								action="#{llamadaBean.pasarTelefonoContactabilidad(telHistoricoGestion.telefono)}"
+								ajax="true" icon="ui-icon-search" title="llamar" />
+						</p:column>
+
+						<p:column headerText="Telefono">
+							<h:outputText value="#{telHistoricoGestion.telefono}" />
+						</p:column>
+
+
+						<p:column headerText="Probabilidad">
+							<h:outputText value="#{telHistoricoGestion.probabilidad}" />
+						</p:column>
+
+						<p:column headerText="#Localizados">
+							<h:outputText value="#{telHistoricoGestion.cantLocalizado}" />
+						</p:column>
+
+						<p:column headerText="#Ilocalizados">
+							<h:outputText value="#{telHistoricoGestion.cantILocalizado}" />
+						</p:column>
+					</p:dataTable>
+				</div>
+			</div>
+		</p:panel>
+
+		<p:panel>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-6">
+					<h:outputText value="Obligaciones del deudor en otras campañas:"
+						style="width:12;" />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-6">
+					<h:outputText value="Números telefónicos retirados:"
+						style="width:12;" />
+
+					<p:dataTable var="telRetirados"
+						value="#{llamadaBean.telefonosRetirados}" scrollable="true"
+						scrollHeight="150" scrollWidth="515" reflow="true"
+						emptyMessage="No tiene registros de Telefonos retirados!">
+
+						<p:column headerText="Telefono">
+							<h:outputText value="#{telRetirados.telefono}" />
+						</p:column>
+
+						<p:column headerText="Fecha de retiro">
+							<h:outputText value="#{telRetirados.fechaRetiro}" />
+						</p:column>
+
+						<p:column headerText="Cargue">
+							<h:outputText value="#{telRetirados.idCargue}" />
+						</p:column>
+					</p:dataTable>
+				</div>
+			</div>
+		</p:panel>
+
+
+	</h:form>
+
+
+</body>
+</html>

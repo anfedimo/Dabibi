@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+	<h:form id="frmPrincipal">
+		<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+		
+		<p:panelGrid>
+			<p:panel id="detalleObligacion">
+				<f:facet name="header">
+		         Detalle de la obligación n° 
+		         <h:outputText
+						value="#{DetallesObligacionesBean.obligacionHoy.idObligacion}" />
+				</f:facet>
+				<p:row>
+					<p:column>
+						<h:outputText value="Rango Inicial :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.rangoInicial}">
+						</h:outputText>
+					</p:column>
+					<p:column>
+						<h:outputText value="Estado :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.estado}">
+						</h:outputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Días de mora :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.diaMoraCalculoHoy}">
+						</h:outputText>
+					</p:column>
+					<p:column>
+						<h:outputText value="Clase :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.clase}">
+						</h:outputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column headerText="Dia de corte">
+						<h:outputText value="Dia de corte :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.fechaCorteArchivo}">
+						</h:outputText>
+					</p:column>
+
+					<p:column>
+						<h:outputText value="Bloqueo :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.clase}">
+						</h:outputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Fecha límite :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.fechaLimite}">
+						</h:outputText>
+					</p:column>
+
+					<p:column>
+						<h:outputText value="Status :" />
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="#{DetallesObligacionesBean.obligacionHoy.nombreStatus}">
+						</h:outputText>
+					</p:column>
+				</p:row>
+			</p:panel>
+		</p:panelGrid>
+		
+		<br />
+		<br />
+		<br />
+
+		<div class="ui-g">
+		<h:outputText value="Buen día me comunica por favor con el(la) Sr(a) " />
+			<h:outputText value="${clienteBean.cliente.nombre}" />
+			<div class="ui-g-12 ui-g-nopad">
+				<div class="ui-g-6">
+					<p:row>
+						<p:column>
+							<p:commandButton value="No contacto" action="#{politicaRediferidoBean.verNoContacto('NC', 1)}" />
+						</p:column>
+						<p:column>
+							<p:commandButton value="No contesta" action="#{politicaRediferidoBean.verNoContacto('NC', 1)}" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:commandButton value="Mensaje tercero" action="#{politicaRediferidoBean.verMensajeTercero('ME',1)}" />
+					</p:row>
+				</div>
+				<div class="ui-g-6">
+					<p:row>
+						<p:commandButton value="Contacto titular" action="#{politicaRediferidoBean.verContactoTitular('CC',1)}" />
+					</p:row>
+					<p:row>
+						<p:commandButton value="Llamada Inbound" action="#{politicaRediferidoBean.verContactoTitular('CC',1)}" />
+					</p:row>
+				</div>
+			</div>
+		</div>
+
+	</h:form>
+</body>
+</html>

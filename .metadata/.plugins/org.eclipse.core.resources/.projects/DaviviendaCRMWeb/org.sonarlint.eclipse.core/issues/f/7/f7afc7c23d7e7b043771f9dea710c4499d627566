@@ -1,0 +1,108 @@
+
+zsquid:CommentedOutCodeLine»
+"<This block of commented-out lines of code should be removed.(”ˆãûH£æRMAJORZ
+CODE_SMELL
+\squid:S1172¬"-Remove this unused method parameter "numero".(§í¡ÇH¤æRMAJORZ
+CODE_SMELL
+»squid:S1845•"‰Rename method "setOpcionMensajeTercero" to prevent any misunderstanding/clash with method "setopcionMensajeTercero" defined on line 2057.(½ÙôH¥æRBLOCKERZ
+CODE_SMELL
+`squid:S19482"/Make "usuarioHermes" transient or serializable.(³àœçH¦æRCRITICALZ
+CODE_SMELL
+^squid:S1948"'Make "login" transient or serializable.(šÉì¶üÿÿÿÿH§æRCRITICALZ
+CODE_SMELL
+fsquid:S19488"0Make "simuladorCuota" transient or serializable.(ã¨ÌŒúÿÿÿÿH¨æRCRITICALZ
+CODE_SMELL
+bsquid:S19485",Make "rediferido" transient or serializable.(Þ”øÜýÿÿÿÿH©æRCRITICALZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineð
+"<This block of commented-out lines of code should be removed.(”ˆãûHªæRMAJORZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineâ	"<This block of commented-out lines of code should be removed.(”ˆãûH«æRMAJORZ
+CODE_SMELL
+hsquid:S19486"7Make "historicoObligaciones" transient or serializable.(Ù¢ çH¬æRCRITICALZ
+CODE_SMELL
+bsquid:S19487"1Make "simuladorCuotas" transient or serializable.(ø¥¯—H­æRCRITICALZ
+CODE_SMELL
+Œsquid:S1192Â"UDefine a constant instead of duplicating this literal "Ocurrio un error..." 39 times.(Û­ë»øÿÿÿÿH®æRCRITICALZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineè	"<This block of commented-out lines of code should be removed.(˜ÕÜâH¯æRMAJORZ
+CODE_SMELL
+asquid:S1172è"-Remove this unused method parameter "numero".(´ÙëþÿÿÿÿH°æRMAJORZ
+CODE_SMELL
+Xsquid:S19484"(Make "global" transient or serializable.(Õ©öH±æRCRITICALZ
+CODE_SMELL
+isquid:S1948["3Make "listaMotivoNoPago" transient or serializable.(Ò­óµüÿÿÿÿH²æRCRITICALZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineô
+"<This block of commented-out lines of code should be removed.(”ˆãûH³æRMAJORZ
+CODE_SMELL
+™squid:S4165Ö"kRemove this useless assignment; "selectedMeses" already holds the assigned value along all execution paths.(¼‚ëfH´æRMAJORZ
+CODE_SMELL
+asquid:S1172Ž"-Remove this unused method parameter "numero".(ÐäÈ¢ÿÿÿÿÿHµæRMAJORZ
+CODE_SMELL
+asquid:S1172š"-Remove this unused method parameter "numero".(…üáõûÿÿÿÿH¶æRMAJORZ
+CODE_SMELL
+~squid:S1192¹"GDefine a constant instead of duplicating this literal "Error" 28 times.(Ž¡ „ÿÿÿÿÿH·æRCRITICALZ
+CODE_SMELL
+]squid:S1948}"'Make "dolar" transient or serializable.(˜‘ÒåøÿÿÿÿH¸æRCRITICALZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineÅ
+"<This block of commented-out lines of code should be removed.(˜ÕÜâH¹æRMAJORZ
+CODE_SMELL
+Zsquid:S1148£"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHºæRMINORZVULNERABILITY
+esquid:S19483"/Make "obligacionHoy" transient or serializable.(ƒóèÇøÿÿÿÿH»æRCRITICALZ
+CODE_SMELL
+_squid:S1948/".Make "tipificacion" transient or serializable.(›ºàáH¼æRCRITICALZ
+CODE_SMELL
+\squid:S19481"&Make "tasa" transient or serializable.(¼ÀªþÿÿÿÿH½æRCRITICALZ
+CODE_SMELL
+bsquid:S1948Y"1Make "listaAfinidades" transient or serializable.(íåá·H¾æRCRITICALZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineé"<This block of commented-out lines of code should be removed.(˜ÕÜâH¿æRMAJORZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineú
+"<This block of commented-out lines of code should be removed.(˜ÕÜâHÀæRMAJORZ
+CODE_SMELL
+\squid:S1172Ç"-Remove this unused method parameter "numero".(¿ÄÝ÷HÁæRMAJORZ
+CODE_SMELL
+`squid:S1948„")Make "detalle" transient or serializable.(¾á‡þÿÿÿÿHÂæRCRITICALZ
+CODE_SMELL
+\squid:S1172Ì"-Remove this unused method parameter "numero".(…©ª”HÃæRMAJORZ
+CODE_SMELL
+”squid:UselessImportCheck"MRemove this unused import 'org.eclipse.persistence.jpa.jpql.parser.DateTime'.(÷“»¥ûÿÿÿÿ8¸ì¾“—-HÄæRMINORZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineß"<This block of commented-out lines of code should be removed.(”ˆãûHÅæRMAJORZ
+CODE_SMELL
+asquid:S1172è"-Remove this unused method parameter "numero".(Á­ñžùÿÿÿÿHÆæRMAJORZ
+CODE_SMELL
+esquid:S1172°	"6Remove this unused method parameter "idTipoResultado".(Æ ‹HÇæRMAJORZ
+CODE_SMELL
+esquid:S19480"/Make "tipificacion2" transient or serializable.(©º®æþÿÿÿÿHÈæRCRITICALZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineÞ	"<This block of commented-out lines of code should be removed.(”ˆãûHÉæRMAJORZ
+CODE_SMELL
+esquid:S1172Õ"6Remove this unused method parameter "idTipoResultado".(žÓÐ¹HÊæRMAJORZ
+CODE_SMELL
+˜squid:S4144•"iUpdate this method so that its implementation is not identical to "setopcionMensajeTercero" on line 2057.(½ÙôHËæRMAJORZ
+CODE_SMELL
+ksquid:S1948S"5Make "listaTipificaciones" transient or serializable.(¿±óÛüÿÿÿÿHÌæRCRITICALZ
+CODE_SMELL
+squid:S1192Š"JDefine a constant instead of duplicating this literal "pnlCampos" 3 times.(Ëÿõ‡ýÿÿÿÿHÍæRCRITICALZ
+CODE_SMELL
+esquid:S1135¢"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHÎæRINFOZ
+CODE_SMELL
+zsquid:CommentedOutCodeLineã"<This block of commented-out lines of code should be removed.(”ˆãûHÏæRMAJORZ
+CODE_SMELL
+zsquid:CommentedOutCodeLine¿
+"<This block of commented-out lines of code should be removed.(”ˆãûHÐæRMAJORZ
+CODE_SMELL
+‚squid:S1192À"KDefine a constant instead of duplicating this literal "obligacion" 9 times.(éàùÝúÿÿÿÿHÑæRCRITICALZ
+CODE_SMELL
+asquid:S1172é"-Remove this unused method parameter "numero".(§øÙÃýÿÿÿÿHÒæRMAJORZ
+CODE_SMELL
+squid:S1192¾"ODefine a constant instead of duplicating this literal "pnlOtrosDatos" 19 times.(ü°úÑHÓæRCRITICALZ
+CODE_SMELL
+asquid:S1172¶"-Remove this unused method parameter "numero".(ì ¦ÞýÿÿÿÿHÔæRMAJORZ
+CODE_SMELL
+ˆsquid:S1192¿"QDefine a constant instead of duplicating this literal "opcionesContacto" 4 times.(«ù«×ùÿÿÿÿHÕæRCRITICALZ
+CODE_SMELL

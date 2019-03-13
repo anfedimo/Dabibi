@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+	<h:form>
+		<p:panelGrid>
+			<p:panel>
+				<f:facet name="header">
+		       Información del acuerdo - especial: 
+		       	 <h:outputText
+						value="#{DetallesObligacionesBean.obligacionHoy.numeroCredito}" />
+				</f:facet>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Tipo:" for="tipo" />
+					</p:column>
+					<p:column>
+						<p:selectOneMenu id="tipo" required="true"
+							value="#{politicaRediferidoBean.selectedReestructuracion}"
+							size="18" label="tipo">
+							
+							<f:selectItem itemLabel="Selecione tipo" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems
+								value="#{politicaRediferidoBean.tipoReestructuracion}" />
+							<p:message for="tipo" />
+						</p:selectOneMenu>
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="(Utilizar el simulador de rediferidos 'Simulador Normalización.XLS' para la comparación entre los dos tipos)" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Plazo:" for="plazo" />
+					</p:column>
+					<p:column>
+						<p:selectOneMenu id="plazo" required="true"
+							value="#{politicaRediferidoBean.selectedMeses}" size="18"
+							label="plazo" requiredMessage="Por favor seleccione el plazo">
+							<f:selectItem itemLabel="Selecione plazo" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems value="#{politicaRediferidoBean.plazoMeses}" />
+							<p:message for="plazo" />
+						</p:selectOneMenu>
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="(Calcular las dos primeras cuotas bajo ambas opciones de simulación)" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Saldo total:" for="txtSaldoTotal" />
+					</p:column>
+					<p:column>
+						<p:inputNumber id="txtSaldoTotal"
+							value="#{politicaRediferidoBean.saldoTotalreestruc}"
+							label="saldo total" size="18" required="true"
+							requiredMessage="Por favor ingrese el saldo total"
+							decimalSeparator="," thousandSeparator=".">
+							<p:watermark for="txtSaldoTotal" value="Saldo total" />
+							<p:message for="txtSaldoTotal" />
+						</p:inputNumber>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Primera cuota:" for="txtPrimeraCuota" />
+					</p:column>
+					<p:column>
+						<p:inputNumber id="txtPrimeraCuota"
+							value="#{politicaRediferidoBean.simuladoPrimeraCuota}"
+							label="primera cuota" size="18" required="true"
+							requiredMessage="Por favor ingrese la primera cuota"
+							decimalSeparator="," thousandSeparator=".">
+							<p:watermark for="txtPrimeraCuota" value="Primera cuota" />
+							<p:message for="txtPrimeraCuota" />
+						</p:inputNumber>
+					</p:column>
+					<p:column>
+						<h:outputText
+							value="(Digitar el monto de la primera cuota del simulador)" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Valor a pagar :" for="txtValorPagar" />
+					</p:column>
+					<p:column>
+						<p:inputNumber id="txtValorPagar"
+							value="#{politicaRediferidoBean.simuladoPrimeraCuota}"
+							label="valor a pagar" size="18" required="true"
+							requiredMessage="Por favor ingrese el valor a pagar"
+							decimalSeparator="," thousandSeparator=".">
+							<p:watermark for="txtValorPagar" value="Valor a pagar" />
+							<p:message for="txtValorPagar" />
+						</p:inputNumber>
+					</p:column>
+					<p:column>
+						<h:outputText value="(Es dos veces el monto de la primera cuota)" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<p:outputLabel for="fechaDocumentacion"
+							value="Fecha de documentación:" />
+					</p:column>
+					<p:column>
+						<p:calendar id="fechaDocumentacion" required="true" size="18"
+							requiredMessage="Por favor ingrese la fecha de documentación"
+							value="#{politicaRediferidoBean.fechaDocumentacion}">
+							<p:message for="fechaDocumentacion" />
+						</p:calendar>
+					</p:column>
+				</p:row>
+
+
+				<p:row>
+					<p:column>
+						<p:commandButton  value="Aceptar el acuerdo"
+							action="#{politicaRediferidoBean.aceptoReestructuracion(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+							update="growl" />
+					</p:column>
+
+					<p:column>
+						<p:commandButton value="Rechazar el acuerdo"
+							action="#{politicaRediferidoBean.verSinAcuerdoRediferido(1)}"
+							update="growl" />
+					</p:column>
+				</p:row>
+			</p:panel>
+		</p:panelGrid>
+	</h:form>
+</body>
+</html>

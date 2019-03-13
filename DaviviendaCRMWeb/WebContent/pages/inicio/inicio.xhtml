@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+
+
+
+<!-- 	<h:outputStylesheet library="css" name="/resources/css/style.css" /> -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<script type="text/javascript">
+		setInterval(function() {
+			location.reload();
+		}, 9000000);
+	</script>
+
+</h:head>
+<body>
+
+	<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		template="../../resources/templates/templateLogin.xhtml">
+		<ui:define name="top">
+
+		</ui:define>
+
+		<ui:define name="left">
+
+		</ui:define>
+
+		<ui:define name="content">
+			<p:panel style="border:none;" id="contenido">
+				<p:tabView>
+					<p:tab title="Buscar Titular">
+						<ui:include src="/pages/buscar/busqueda.xhtml"></ui:include>
+					</p:tab>
+
+					<p:tab title="Auxiliar" rendered="false">
+						<ui:include src="/pages/auxiliar/auxiliar.xhtml"></ui:include>
+					</p:tab>
+				</p:tabView>
+			</p:panel>
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>

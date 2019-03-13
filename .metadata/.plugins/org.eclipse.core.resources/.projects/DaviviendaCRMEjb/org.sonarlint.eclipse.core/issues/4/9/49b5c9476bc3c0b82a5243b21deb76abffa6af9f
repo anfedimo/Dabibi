@@ -1,0 +1,135 @@
+
+_squid:S1068&"1Remove this unused "valorCapitalI" private field.(¤•ß¶H“ÛRMAJORZ
+CODE_SMELL
+dsquid:S1068("1Remove this unused "valorInteresI" private field.(«…çƒûÿÿÿÿH”ÛRMAJORZ
+CODE_SMELL
+hsquid:S1068-"5Remove this unused "capitalDescuentoI" private field.(æ•…´úÿÿÿÿH•ÛRMAJORZ
+CODE_SMELL
+hsquid:S1068/"5Remove this unused "interesDescuentoI" private field.(‚ÓúùÿÿÿÿH–ÛRMAJORZ
+CODE_SMELL
+]squid:S10681"/Remove this unused "totalCobroI" private field.(­›À”H—ÛRMAJORZ
+CODE_SMELL
+^squid:S1068;"0Remove this unused "Tipificacion" private field.(ö´Ö¸H˜ÛRMAJORZ
+CODE_SMELL
+Šsquid:S1450&"\Remove the "valorCapitalI" field and declare it as a local variable in the relevant methods.(¤•ß¶H™ÛRMINORZ
+CODE_SMELL
+squid:S1450("\Remove the "valorInteresI" field and declare it as a local variable in the relevant methods.(«…çƒûÿÿÿÿHšÛRMINORZ
+CODE_SMELL
+“squid:S1450-"`Remove the "capitalDescuentoI" field and declare it as a local variable in the relevant methods.(æ•…´úÿÿÿÿH›ÛRMINORZ
+CODE_SMELL
+“squid:S1450/"`Remove the "interesDescuentoI" field and declare it as a local variable in the relevant methods.(‚ÓúùÿÿÿÿHœÛRMINORZ
+CODE_SMELL
+ˆsquid:S14501"ZRemove the "totalCobroI" field and declare it as a local variable in the relevant methods.(­›À”HÛRMINORZ
+CODE_SMELL
+˜squid:S1488é"iImmediately return this expression instead of assigning it to the temporary variable "capitalDescuentoB".(œÍşåHÛRMINORZ
+CODE_SMELL
+™squid:S1488ó"eImmediately return this expression instead of assigning it to the temporary variable "valorCapitalB".(á…ÍŸÿÿÿÿÿHŸÛRMINORZ
+CODE_SMELL
+™squid:S1488ü"eImmediately return this expression instead of assigning it to the temporary variable "valorInteresB".(‡¥ÇüÿÿÿÿH ÛRMINORZ
+CODE_SMELL
+squid:S1488…"iImmediately return this expression instead of assigning it to the temporary variable "interesDescuentoB".(²›°úÿÿÿÿH¡ÛRMINORZ
+CODE_SMELL
+—squid:S1488"cImmediately return this expression instead of assigning it to the temporary variable "totalCobroB".(È‘ËâúÿÿÿÿH¢ÛRMINORZ
+CODE_SMELL
+~squid:S00100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¸µ¨H£ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100Â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éì»¿úÿÿÿÿH¤ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100Æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’®¥øÿÿÿÿH¥ÛRMINORZ
+CODE_SMELL
+~squid:S00100Ê"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş­˜‡H¦ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100Î"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÒÇáøÿÿÿÿH§ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100Ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÏ÷ŒúÿÿÿÿH¨ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100Ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ò•ÕùÿÿÿÿH©ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100Ü"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ñÄıÿÿÿÿHªÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100à"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Ğá¿şÿÿÿÿH«ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100ä"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œÿ»›úÿÿÿÿH¬ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100è"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØëĞ¨ıÿÿÿÿH­ÛRMINORZ
+CODE_SMELL
+~squid:S00100ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—‘ÚßH®ÛRMINORZ
+CODE_SMELL
+}squid:S00100ğ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½‡H¯ÛRMINORZ
+CODE_SMELL
+~squid:S00100ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´©ä¸H°ÛRMINORZ
+CODE_SMELL
+}squid:S00100ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í¨£=H±ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100ü"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠµÅ×ÿÿÿÿÿH²ÛRMINORZ
+CODE_SMELL
+~squid:S00100€"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ì‘äH³ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100„"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÓ»õúÿÿÿÿH´ÛRMINORZ
+CODE_SMELL
+~squid:S00100ˆ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÇÅàHµÛRMINORZ
+CODE_SMELL
+~squid:S00100Œ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğøøÌH¶ÛRMINORZ
+CODE_SMELL
+~squid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂˆìöH·ÛRMINORZ
+CODE_SMELL
+~squid:S00100”"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ñH¸ÛRMINORZ
+CODE_SMELL
+}squid:S00100˜"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Ó¥%H¹ÛRMINORZ
+CODE_SMELL
+ƒsquid:S00100œ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ŠÂäıÿÿÿÿHºÛRMINORZ
+CODE_SMELL
+Ÿsquid:S1845;"oRename field "Tipificacion" to prevent any misunderstanding/clash with field "tipificacion" defined on line 30.(ö´Ö¸H»ÛRBLOCKERZ
+CODE_SMELL
+squid:S001169"QRename this field "Asesor" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¨“eH¼ÛRMINORZ
+CODE_SMELL
+‹squid:S00116:"\Rename this field "TelÃ©fono_marcado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ş”àÑH½ÛRMINORZ
+CODE_SMELL
+†squid:S00116;"WRename this field "Tipificacion" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö´Ö¸H¾ÛRMINORZ
+CODE_SMELL
+squid:S00116<"YRename this field "texto_agendado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¬Ê–øÿÿÿÿH¿ÛRMINORZ
+CODE_SMELL
+‡squid:S00116="XRename this field "texto_tercero" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çğíHÀÛRMINORZ
+CODE_SMELL
+†squid:S00116>"WRename this field "dias_de_mora" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­ÄáÎHÁÛRMINORZ
+CODE_SMELL
+Šsquid:S00116?"VRename this field "pago_minimo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã™ØÙøÿÿÿÿHÂÛRMINORZ
+CODE_SMELL
+…squid:S00116@"VRename this field "saldo_total" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êãî²HÃÛRMINORZ
+CODE_SMELL
+‡squid:S00116A"XRename this field "saldo_capital" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ¾ÿ®HÄÛRMINORZ
+CODE_SMELL
+„squid:S00116B"URename this field "saldo_mora" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«âºÂHÅÛRMINORZ
+CODE_SMELL
+squid:S00116C"\Rename this field "texto_negociacion" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚É¦¼ùÿÿÿÿHÆÛRMINORZ
+CODE_SMELL
+•squid:S00116D"aRename this field "texto_reestructuracion" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒÎ„şÿÿÿÿHÇÛRMINORZ
+CODE_SMELL
+squid:S00116E"[Rename this field "texto_rediferido" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ùåü»ùÿÿÿÿHÈÛRMINORZ
+CODE_SMELL
+squid:S00116F"_Rename this field "texto_motivo_no_pago" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ÀÎ´HÉÛRMINORZ
+CODE_SMELL
+†squid:S00117Â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éì»¿úÿÿÿÿHÊÛRMINORZ
+CODE_SMELL
+squid:S00117Ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş­˜‡HËÛRMINORZ
+CODE_SMELL
+†squid:S00117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÏ÷ŒúÿÿÿÿHÌÛRMINORZ
+CODE_SMELL
+†squid:S00117Ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ñÄıÿÿÿÿHÍÛRMINORZ
+CODE_SMELL
+†squid:S00117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œÿ»›úÿÿÿÿHÎÛRMINORZ
+CODE_SMELL
+squid:S00117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—‘ÚßHÏÛRMINORZ
+CODE_SMELL
+squid:S00117ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´©ä¸HĞÛRMINORZ
+CODE_SMELL
+†squid:S00117ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠµÅ×ÿÿÿÿÿHÑÛRMINORZ
+CODE_SMELL
+†squid:S00117„"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÓ»õúÿÿÿÿHÒÛRMINORZ
+CODE_SMELL
+squid:S00117Œ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğøøÌHÓÛRMINORZ
+CODE_SMELL
+squid:S00117”"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ñHÔÛRMINORZ
+CODE_SMELL
+†squid:S00117œ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ŠÂäıÿÿÿÿHÕÛRMINORZ
+CODE_SMELL

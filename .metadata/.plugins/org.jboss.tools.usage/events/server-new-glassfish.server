@@ -1,0 +1,11 @@
+#Tue Mar 12 09:48:59 COT 2019
+vl=0 \= failed, 1 \= successful
+l=Server Runtime ID
+ct=server
+d=1552402139061
+c=0
+cmp=server
+a=new
+cl=glassfish.server
+v=3.1.1
+s=0

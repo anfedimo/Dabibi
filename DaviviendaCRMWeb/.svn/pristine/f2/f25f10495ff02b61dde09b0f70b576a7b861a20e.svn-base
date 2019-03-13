@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+.dialog .ui-dialog-titlebar {
+	background-color: #007FFF;
+	color: white;
+}
+</style>
+</h:head>
+<body>
+	<h:form id="frmNoContacto">
+		<p:dialog id="dlNocontacto" closable="true" header="Error"
+			widgetVar="dlNocontacto" modal="true" styleClass="dialog">
+			<p:panel id="pnlDlMensaje">
+				<h:outputText value="#{noContactoBean.mensajeError}" />
+			</p:panel>
+		</p:dialog>
+
+		<center>
+			<p:panel id="pnlNoContacto" style="border:none;">
+			<p:toolbar>
+				<p:toolbarGroup align="left">
+					<p:outputLabel value="No contacto" />
+				</p:toolbarGroup>
+			</p:toolbar>
+				<p:messages id="nemsg" closable="true"></p:messages>
+				<c:if test="#{noContactoBean.inicio}">
+				<br></br>
+					<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+						<p:outputLabel value="Tipificaci&oacute;n:"
+							for="slcTipificacionNC"></p:outputLabel>
+						<p:selectOneMenu value="#{noContactoBean.idTipificacion}"
+							id="slcTipificacionNC" style="width:400px" required="true"
+							requiredMessage="Debe seleccionar una tipificaci&oacute;n">
+							<f:selectItem itemLabel="Seleccione..." itemValue="" />
+							<f:selectItems value="#{noContactoBean.tipificaciones}"></f:selectItems>
+						</p:selectOneMenu>
+						<p:outputLabel value="Observaci&oacute;n:" for="txtObsNC"></p:outputLabel>
+						<p:inputTextarea   value="#{noContactoBean.observacion}"
+							required="true"
+							requiredMessage="Debe ingresar una observaci&oacute;n"
+							id="txtObsNC" style="width:400px" cols="30" maxlength="800"></p:inputTextarea>
+					</p:panelGrid>
+					<p:commandButton ajax="false" value="Guardar Gestión"
+						action="#{noContactoBean.guardarNoContacto()}"
+						update="frmNoContacto:pnlNoContacto" icon="ui-icon-disk"></p:commandButton>
+				</c:if>
+				<c:if test="#{noContactoBean.fin}">
+					<h1>GESTI&Oacute;N GUARDADA CORRECTAMENTE</h1>
+
+				</c:if>
+			</p:panel>
+		</center>
+	</h:form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+package co.sistemcobro.davivienda.dao;
+
+import java.net.InetAddress;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.apache.log4j.Logger;
+
+import co.sistemcobro.davivienda.bean.Memo;
+
+public class MemoDAO extends BaseDAO {
+
+	public MemoDAO(DataSource ds) {
+		super(ds);
+
+	}
+
+	private static Logger logger = Logger.getLogger(MemoDAO.class);
+	private String SQL_BUSCAR_GESTION = ""
+			+ "SELECT [idgestion] "
+			+ "      ,[identificacion] "
+			+ "      ,[fechafin] "
+			+ "      ,[mensaje] "
+			+ "      ,[obligacion] "
+			+ "      ,[Asesor] "
+			+ "      ,[Teléfono_marcado] "
+			+ "      ,[Tipificacion] "
+			+ "      ,[texto_agendado] "
+			+ "      ,[texto_tercero] "
+			+ "      ,[días_de_mora] "
+			+ "      ,[pago_minimo] "
+			+ "      ,[saldo_total] "
+			+ "      ,[saldo_capital] "
+			+ "      ,[saldo_mora] "
+			+ "      ,[texto_negociacion] "
+			+ "      ,[texto_reestructuracion] "
+			+ "      ,[texto_rediferido] "
+			+ "      ,[texto_motivo_no_pago] "
+			+ "      ,[valorpromesa] "
+			+ "		 ,[fechapromesa] "
+			+ "  FROM [davivienda].[memo_3] WITH (NOLOCK) where identificacion = ? ";
+
+	/**
+	 * buscarMemo. método para listar el historico de gestiones
+	 * 
+	 * @author Camilo Ochoa
+	 * @param String idcliente (cédula del cliente), List<Memo> gestiones
+	 * @throws IllegalArgumentException
+	 *             si se encuentra null, está vacío o contiene sólo espacios.
+	 * @return List<Memo> lista de gestiones 
+	 * @see N/A
+	 */
+	public List<Memo> buscarMemo(String idcliente, List<Memo> gestiones) throws Exception {
+		Date fecha = new Date();
+		InetAddress address = InetAddress.getLocalHost();
+		try {
+			con = ds.getConnection();
+			ps = con.prepareStatement(SQL_BUSCAR_GESTION, Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, idcliente);
+
+			rs = ps.executeQuery();
+			int t = 1;
+			while (rs.next()) {
+				t = 1;
+				Memo gestion = new Memo();
+				gestion.setIdgestion(rs.getString(t++));
+				gestion.setIdentificacion(rs.getString(t++));
+				gestion.setFechafin(rs.getString(t++));
+				gestion.setMensaje(rs.getString(t++));
+				gestion.setObligacion(rs.getString(t++));
+				gestion.setAsesor(rs.getString(t++));
+				gestion.setTeléfono_marcado(rs.getString(t++));
+				gestion.setTipificacion(rs.getString(t++));
+				gestion.setTexto_agendado(rs.getString(t++));
+				gestion.setTexto_tercero(rs.getString(t++));
+				gestion.setDias_de_mora(rs.getString(t++));
+				gestion.setPago_minimo(rs.getString(t++));
+				gestion.setSaldo_total(rs.getString(t++));
+				gestion.setSaldo_capital(rs.getString(t++));
+				gestion.setSaldo_mora(rs.getString(t++));
+				gestion.setTexto_negociacion(rs.getString(t++));
+				gestion.setTexto_reestructuracion(rs.getString(t++));
+				gestion.setTexto_rediferido(rs.getString(t++));
+				gestion.setTexto_motivo_no_pago(rs.getString(t++));
+				gestion.setValorPromesa(rs.getString(t++));
+				gestion.setFechaPromesa(rs.getTimestamp(t++));
+				
+				gestiones.add(gestion);
+			}
+		} catch (SQLException e) {
+			logger.error(
+					"SQLException Error SQL al tratar de buscarMemo Clase MemoDAO método buscarMemo"
+							+" "+e.getMessage() + " fecha...." + fecha + " id del registro.... " + Statement.RETURN_GENERATED_KEYS
+							+ " tabla afectada.... vista memo_3 "
+							+ "descripción de evento... lista buscarMemo" + " ip..... "
+							+ address.getHostAddress());
+			throw new Exception("SQLException Error SQL al tratar de buscarMemo ");
+		} catch (Exception e) {
+			logger.error("Exception al tratar de de buscarMemo Clase MemoDAO método buscarMemo"
+					+" "+e.getMessage() + " fecha...." + fecha + " id del registro.... " + Statement.RETURN_GENERATED_KEYS
+					+ " tabla afectada.... vista memo_3 "
+					+ "descripción de evento... lista buscarMemo" + " ip..... " + address.getHostAddress());
+			throw new Exception("Exception al tratar de buscarMemo ");
+		} finally {
+			closeConexion();
+			logger.info("finalizo dao! buscarMemo");
+		}
+		return gestiones;
+	}
+
+}

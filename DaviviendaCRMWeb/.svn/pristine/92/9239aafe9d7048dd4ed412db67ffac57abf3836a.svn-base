@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<body>
+	<h:form id="frmYaPago">
+		<center>
+			<p:panel id="pnlYaPago" style="border:none;">
+			<p:toolbar>
+				<p:toolbarGroup align="left">
+					<p:outputLabel value="Ya pago" />
+				</p:toolbarGroup>
+			</p:toolbar>
+				<p:messages id="nemsg" closable="true"></p:messages>
+				<c:if test="#{yaPagoBean.inicio}">
+				<br></br>
+					<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+						<p:outputLabel value="Tipificaci&oacute;n:"
+							for="slcTipificacionOtrs"></p:outputLabel>
+						<p:selectOneMenu value="#{yaPagoBean.idTipificacion}"
+							id="slcTipificacionOtrs" style="width:400px" required="true"
+							requiredMessage="Debe seleccionar una tipificaci&oacute;n">
+							<f:selectItem itemLabel="Seleccione..." itemValue="" />
+							<f:selectItems value="#{yaPagoBean.tipificaciones}"></f:selectItems>
+							<p:ajax event="change" update="frmYaPago:slcRazon"
+								listener="#{yaPagoBean.onChangeTipificacion}" procces="@this" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Raz&oacute;n no Pago:" for="slcRazon"></p:outputLabel>
+						<p:selectOneMenu value="#{yaPagoBean.idRazon}" id="slcRazon"
+							style="width:400px" required="true"
+							requiredMessage="Debe seleccionar una raz&oacute;n de no pago">
+							<f:selectItem itemLabel="Seleccione..." itemValue="" />
+							<f:selectItems value="#{yaPagoBean.razones}"></f:selectItems>
+						</p:selectOneMenu>
+						<p:panelGrid styleClass="companyHeaderGrid" columns="2">
+							<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+								<p:outputLabel value="Valor Pagado:"></p:outputLabel>
+								<p:inputText  placeholder="Ingrese" value="#{yaPagoBean.valor}"
+									style="width:155px" required="true"
+									requiredMessage="Debe ingresar el valor pagado"></p:inputText>
+							</p:panelGrid>
+							<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+								<p:outputLabel value="Codigo pago:"></p:outputLabel>
+								<p:inputText  placeholder="Ingrese" value="#{yaPagoBean.codigo}"
+									style="width:155px" required="true"
+									requiredMessage="Debe ingresar el codigo de pago"></p:inputText>
+							</p:panelGrid>
+							<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+								<p:outputLabel value="Seccional:"></p:outputLabel>
+								<p:inputText  placeholder="Ingrese"
+									value="#{yaPagoBean.seccional}" style="width:155px"
+									required="true" requiredMessage="Debe ingresar la seccional"></p:inputText>
+							</p:panelGrid>
+							<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+								<p:outputLabel value="Fecha pago:"></p:outputLabel>
+								<p:calendar value="#{yaPagoBean.fechaPago}" style="width:155px"
+									required="true"
+									requiredMessage="Debe seleccionar la fecha de pago"></p:calendar>
+							</p:panelGrid>
+							<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+								<p:outputLabel value="Banco:" for="slcBanco"></p:outputLabel>
+								<p:selectOneMenu value="#{yaPagoBean.idEntidad}" id="slcBanco"
+									style="width:155px" required="true"
+									requiredMessage="Debe seleccionar el banco">
+									<f:selectItem itemLabel="Seleccione..." itemValue="" />
+									<f:selectItems value="#{yaPagoBean.bancos}"></f:selectItems>
+									<p:ajax event="change" process="frmYaPago"
+										update="frmYaPago:pnlYaPago"
+										listener="#{yaPagoBean.onChangeBanco()}"></p:ajax>
+								</p:selectOneMenu>
+							</p:panelGrid>
+							<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+								<p:outputLabel value="Forma de pago:" for="slcForma"></p:outputLabel>
+								<p:selectOneMenu value="#{yaPagoBean.idFormaPago}" id="slcForma"
+									style="width:155px" required="true"
+									requiredMessage="Debe seleccionar la forma de pago">
+									<f:selectItem itemLabel="Seleccione..." itemValue="" />
+									<f:selectItems value="#{yaPagoBean.formaPago}"></f:selectItems>
+									<p:ajax event="change" process="frmYaPago"
+										update="frmYaPago:pnlYaPago"
+										listener="#{yaPagoBean.onChangeForma()}"></p:ajax>
+								</p:selectOneMenu>
+							</p:panelGrid>
+
+
+
+							<c:if test="#{yaPagoBean.otroBanco}">
+								<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+									<p:outputLabel value="Otro Banco:"></p:outputLabel>
+									<p:inputText  placeholder="Ingrese"
+										value="#{yaPagoBean.entidadOtro}" style="width:155px"
+										required="${yaPagoBean.idEntidad == 99}"
+										requiredMessage="Debe ingresar el banco"></p:inputText>
+								</p:panelGrid>
+							</c:if>
+							<c:if test="#{yaPagoBean.otraForma}">
+								<p:panelGrid styleClass="companyHeaderGrid" columns="1">
+									<p:outputLabel value="Otra Forma de Pago:"></p:outputLabel>
+									<p:inputText  placeholder="Ingrese"
+										value="#{yaPagoBean.formaOtro}" style="width:155px"
+										required="${yaPagoBean.idFormaPago == 99}"
+										requiredMessage="Debe ingresar la forma de pago"></p:inputText>
+								</p:panelGrid>
+							</c:if>
+
+
+						</p:panelGrid>
+						<p:outputLabel value="Observaci&oacute;n:" for="txtObsOtros"></p:outputLabel>
+						<p:inputTextarea   value="#{yaPagoBean.observacion}"
+							id="txtObsOtros" style="width:400px" rows="5" cols="30"
+							maxlength="800" required="true"
+							requiredMessage="Debe ingresar la observaci&oacute;n"></p:inputTextarea>
+					</p:panelGrid>
+					<p:commandButton ajax="false" value="Guardar Gestión"
+						action="#{yaPagoBean.guardarYaPago()}"
+						update="frmYaPago:pnlYaPago" icon="ui-icon-disk"></p:commandButton>
+				</c:if>
+				<c:if test="#{yaPagoBean.fin}">
+					<h1>GESTI&Oacute;N GUARDADA CORRECTAMENTE</h1>
+				</c:if>
+			</p:panel>
+		</center>
+	</h:form>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<ui:include src="../detalleObligacion/cabeceraDetalleObligacion.xhtml" />
+</h:head>
+<body>
+	<div class="ui-g">
+		<div class="ui-g-12 ui-g-nopad">
+			<p:panel id="pnlOtrosDatos" style="width:100%">
+				<c:if test="#{politicaRediferidoBean.opcionRediferido == 1 }">
+					<ui:include
+						src="../../pages/rediferido/politica_rediferido_dolar.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.opcionReestructuracion == 1 }">
+					<ui:include
+						src="../../pages/reestructuracion/politica_reestructuracion.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.opcionSinAcuerdo == 1 }">
+					<ui:include src="../../pages/acuerdo/sin_acuerdo.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.opcionNormalizacion == 1 }">
+					<ui:include
+						src="../../pages/normalizacion/politica_normalizacion.xhtml" />
+				</c:if>
+				<c:if test="#{politicaRediferidoBean.opcionRediferidoNormal == 1 }">
+					<ui:include src="../../pages/rediferido/politica_rediferido.xhtml" />
+				</c:if>
+				<c:if
+					test="#{politicaRediferidoBean.opcionNormalizacionVirtual == 1 }">
+					<ui:include
+						src="../../pages/normalizacion/politica_normalizacion_virtual.xhtml" />
+				</c:if>
+
+				<c:if test="#{politicaRediferidoBean.aceptoRediferido == 1 }">
+					<ui:include
+						src="../../pages/rediferido/localizado_con_acuerdo.xhtml" />
+				</c:if>
+				<c:if
+					test="#{politicaRediferidoBean.opcionSinAcuerdoRediferido == 1 }">
+					<ui:include src="../../pages/acuerdo/sin_acuerdo.xhtml" />
+				</c:if>
+
+				<c:if test="#{politicaRediferidoBean.agendo == 1 }">
+					<ui:include src="../../pages/finGestion/finGestion.xhtml" />
+				</c:if>
+			</p:panel>
+		</div>
+	</div>
+
+
+</body>
+</html>

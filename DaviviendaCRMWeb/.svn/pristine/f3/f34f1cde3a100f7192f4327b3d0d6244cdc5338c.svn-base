@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<h:outputStylesheet library="css" name="./resources/css/style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+</h:head>
+<body>
+	<h:form id="frmDatosAdicion">
+
+		<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+
+		<p:outputLabel value="Identificación:" style="font-weight:bold" />
+		<i><p:outputLabel value="${clienteBean.cliente.identificacion}" /></i>
+
+		<p:panelGrid style="width: 100%;">
+			<f:facet name="header">
+				<p:row>
+					<p:column colspan="8">Datos Adicionales</p:column>
+				</p:row>
+
+			</f:facet>
+
+			<p:row>
+				<p:column colspan="1" style="font-weight: bold;">
+					<h:outputText value="Nombre :" style="width:12;" />
+				</p:column>
+				<p:column colspan="3" style="font-weight: bold;">
+					<p:inputText  value="#{DatosAdicionalesBean.nombre}"
+						placeholder="Digite el nombre." style="width:98%" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Departamento :" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<p:panel id="pnlDatosAdicionales" style="border:none;">
+						<p:selectOneMenu value="#{DatosAdicionalesBean.idDepartamento}"
+							style="width:150px">
+							<f:selectItem itemLabel="Select Departamento" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems var="depa" value="#{DatosAdicionalesBean.departamentos}"
+											itemValue="#{depa.id}"
+											itemLabel="#{depa.nombre}" /> 
+							<p:ajax listener="#{DatosAdicionalesBean.onChangeDepartamento}"
+								update="pnlCiudad" />
+						</p:selectOneMenu>
+					</p:panel>
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Ciudad :" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<p:panel id="pnlCiudad" style="border:none;">
+						<p:selectOneMenu id="city"
+							value="#{DatosAdicionalesBean.idCiudad}" filter="true"
+							style="width:150px">
+							<f:selectItem itemLabel="Seleccione ciudad" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems value="#{DatosAdicionalesBean.ciudades}"
+								var="ciudad" itemLabel="#{ciudad.nombre_ciudad}"
+								itemValue="#{ciudad.idciudad}" />
+						</p:selectOneMenu>
+					</p:panel>
+				</p:column>
+			</p:row>
+				
+			<p:row>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Telefono 1:" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<p:inputText  value="#{DatosAdicionalesBean.telefono1}" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Telefono 2:" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<p:inputText  value="#{DatosAdicionalesBean.telefono2}" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Telefono 3:" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<p:inputText  value="#{DatosAdicionalesBean.telefono3}" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Telefono 4 :" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<p:inputText  value="#{DatosAdicionalesBean.telefono4}" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Email :" />
+				</p:column>
+				<p:column style="font-weight: bold;">
+					<p:inputText  value="#{DatosAdicionalesBean.email}"
+					cols="33" style="width:98%" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column style="font-weight: bold;">
+					<h:outputText value="Observación :" />
+				</p:column>
+				<p:column colspan="3">
+					<p:inputTextarea   value="#{DatosAdicionalesBean.observacion}"
+						cols="33" style="width:98%" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="4">
+					<p:commandButton
+						action="#{DatosAdicionalesBean.capturarDatosAdicionales}"
+						value="Guardar" actionListener="#{mesajeBean.info}"
+						update="growl" ></p:commandButton>
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+	</h:form>
+
+
+	<h:form id="frminformacionComplementaria">
+		<p:panel id="pnlinformacioncomplementaria">
+			<p:dataTable var="informacionComplementaria"
+				value="#{DatosAdicionalesBean.informacionComplementaria}"
+				scrollable="true" scrollHeight="85" scrollWidth="699"
+				frozenColumns="0" reflow="true"
+				emptyMessage="No tiene registros de Datos Adicionales !">
+
+				<f:facet name="header">
+					<p:outputLabel value="Teléfonos"></p:outputLabel>
+				</f:facet>
+
+				<p:column headerText="Identificación">
+					<h:outputText value="#{informacionComplementaria.identificacion}" />
+				</p:column>
+
+				<p:column headerText="Teléfono">
+					<h:outputText value="#{informacionComplementaria.telefono}" />
+				</p:column>
+
+				<p:column headerText="Tipo Dato">
+					<h:outputText value="#{informacionComplementaria.tipoDato1}" />
+				</p:column>
+
+			</p:dataTable>
+
+			<p:dataTable var="informacionComplementaria"
+				value="#{DatosAdicionalesBean.detalle}" rows="8" scrollable="true"
+				scrollHeight="85" scrollWidth="699" frozenColumns="" reflow="true"
+				emptyMessage="No tiene registros de Datos Adicionales !">
+
+				<f:facet name="header">
+					<p:outputLabel value="Direcciones"></p:outputLabel>
+				</f:facet>
+
+				<p:column headerText="Identificación">
+					<h:outputText value="#{informacionComplementaria.identificacion}" />
+				</p:column>
+
+				<p:column headerText="Dirección">
+					<h:outputText value="#{informacionComplementaria.direccion}" />
+				</p:column>
+
+				<p:column headerText="Tipo Dato">
+					<h:outputText value="#{informacionComplementaria.tipoDato2}" />
+				</p:column>
+
+			</p:dataTable>
+
+
+			<p:row>
+				<p:column>
+					<h:outputText value="Buscar:" />
+				</p:column>
+				<p:column>
+					<p:inputText  id="datoBuscar"
+						value="#{DatosAdicionalesBean.valorBuscar}">
+					</p:inputText>
+				</p:column>
+				<p:column>
+					<p:commandButton id="btnBuscar" value="buscar"
+						action="#{DatosAdicionalesBean.buscarCliente}" />
+				</p:column>
+				<p:column>
+					<p:commandButton value="Limpiar"
+						action="#{DatosAdicionalesBean.limpiarCliente}" />
+				</p:column>
+			</p:row>
+
+			<p:dataTable id="tablaDatos" var="informacionC"
+				value="#{DatosAdicionalesBean.listaAdiconales}" rows="8"
+				scrollable="true" scrollHeight="85" scrollWidth="699" reflow="true"
+				emptyMessage="No tiene registros de Datos Adicionales !">
+
+				<f:facet name="header">
+					<p:outputLabel value="Consultar Datos Actualizados"></p:outputLabel>
+				</f:facet>
+
+				<p:column headerText="Valor">
+					<h:outputText value="#{informacionC.valor}" />
+				</p:column>
+
+				<p:column headerText="Observación">
+					<h:outputText value="#{informacionC.observacion}" />
+				</p:column>
+
+				<p:column headerText="Fecha">
+					<h:outputText value="#{informacionC.fechaCrea}" />
+				</p:column>
+
+			</p:dataTable>
+		</p:panel>
+
+
+	</h:form>
+
+
+
+</body>
+</html>

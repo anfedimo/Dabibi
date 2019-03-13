@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+	<h:form id="frmMensajeTercero">
+		<p:messages id="messages" showDetail="true" closable="true"></p:messages>
+
+		<table>
+			<tbody>
+				<tr>
+					<td><h:outputLabel value="Mensaje a tercero: " /></td>
+				</tr>
+				<tr>
+					<td colspan="3"><h:outputLabel
+							value="Señor(a) XXXXXXXXXXX, le habla" /> <h:outputText
+							value="${loginBean.usuarioHermes.nombre}" /> <h:outputLabel
+							value="de su BCO DAVIVIENDA,es tan amable de tomarle un mensaje al señor(a) " />
+						<h:outputText value="${clienteBean.cliente.nombre}" /> <h:outputLabel
+							value=",por favor le informa que le llamamos del BCO DAVIVIENDA en referencia a su obligación " />
+						<h:outputText
+							value="${DetallesObligacionesBean.obligacionHoy.codTrunc}" /> <h:outputLabel
+							value=", que se comunique a nuestra línea 745 0446. " /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel
+							value="Nombre de quien contestó la llamada:"
+							for="txtNombreQuienContesto" /></td>
+
+					<td><p:inputText id="txtNombreQuienContesto"
+							value="#{politicaRediferidoBean.nombreTercero}" required="true"
+							label="nombre tercero" size="65"
+							requiredMessage="Por favor ingrese el nombre del tercero"
+							validatorMessage="Formato invalido nombre del tercero">
+							<f:validateRegex pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s,\.]+$" />
+							<p:watermark for="txtNombreQuienContesto"
+								value="Nombre de quien contestó la llamada" />
+							<p:message for="txtNombreQuienContesto" />
+						</p:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel
+							value="Afinidad de quien contestó la llamada:" for="slcAfinidad" /></td>
+					<td><p:selectOneMenu id="slcAfinidad" size="65"
+							value="#{politicaRediferidoBean.selectedAfinidad}"
+							required="true" label="afinidad"
+							requiredMessage="Por favor seleccione la afinidad">
+							<f:selectItem itemLabel="Selecione afinidad" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItems var="afinidad"
+								value="#{politicaRediferidoBean.listaAfinidades}"
+								itemValue="#{afinidad.idAfinidad}"
+								itemLabel="#{afinidad.nombreAfinidad}" />
+							<p:message for="slcAfinidad" />
+						</p:selectOneMenu></td>
+				</tr>
+
+				<tr>
+					<td><h:outputLabel value="Mensaje:" for="txtMensajeTercero" />
+					</td>
+					<td><p:inputTextarea rows="6" cols="66" id="txtMensajeTercero"
+							value="#{politicaRediferidoBean.mensajeTercero}"
+							label="mensaje tercero" size="40" required="true"
+							requiredMessage="Por favor ingrese el mensaje del tercero"
+							validatorMessage="Formato invalido mensaje tercero">
+							<f:validateRegex pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s,\.]+$" />
+							<p:watermark for="txtMensajeTercero" value="Mensaje" />
+							<p:message for="txtMensajeTercero" />
+						</p:inputTextarea></td>
+				</tr>
+
+				<tr>
+					<td><h:outputLabel value="Observación:" for="txtObservacion" />
+					</td>
+					<td><p:inputTextarea rows="6" cols="66" id="txtObservacion"
+							value="#{politicaRediferidoBean.observacion}" label="observación"
+							size="40" required="true"
+							requiredMessage="Por favor ingrese la observación"
+							validatorMessage="Formato invalido observación">
+							<f:validateRegex pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s,\.]+$" />
+							<p:watermark for="txtObservacion" value="Observación" />
+							<p:message for="txtObservacion" />
+						</p:inputTextarea></td>
+				</tr>
+
+				<tr>
+					<td><p:commandButton value="Continuar"
+							action="#{politicaRediferidoBean.agendamientoMensaje(1,DetallesObligacionesBean.obligacionHoy.idObligacion)}"
+							update="growl" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</h:form>
+</body>
+</html>

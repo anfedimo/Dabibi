@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+	<h:form id="frmSinAcuerdo">
+		<p:panel>
+			<f:facet name="header">
+		       sin acuerdo - obligación n° 
+		       	 <h:outputText
+					value="#{DetallesObligacionesBean.obligacionHoy.numeroCredito}" />
+			</f:facet>
+
+			<table>
+				<tbody>
+					<tr>
+						<td><h:outputLabel value="Observación:" for="txtObservacion" /></td>
+						<td><p:inputTextarea   id="txtObservacion" rows="6" cols="33"
+								value="#{politicaRediferidoBean.observacion}" required="true"
+								size="25" requiredMessage="Por favor ingrese la observación"
+								validatorMessage="Formato invalido observación">
+								<f:validateRegex pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s,\.]+$" />
+								<p:watermark for="txtObservacion" value="Observación" />
+								<p:message for="txtObservacion" />
+							</p:inputTextarea></td>
+					</tr>
+
+					<tr>
+						<td><p:outputLabel
+								value=" ¿Desea agendar llamada? " /></td>
+						<td><p:commandButton ajax="false" value="Si"
+								action="#{politicaRediferidoBean.aceptoAgendamientoMetodo(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" />
+							<p:commandButton  value="No"
+								action="#{politicaRediferidoBean.agendamiento(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}"
+								update="growl" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</p:panel>
+	</h:form>
+</body>
+</html>

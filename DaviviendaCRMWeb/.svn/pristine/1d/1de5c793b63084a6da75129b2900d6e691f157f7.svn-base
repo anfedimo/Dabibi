@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+	<h:form id="agendarLlamada">
+		<p:panelGrid>
+			<p:panel>
+				<f:facet name="header">
+		       Agendar llamada al cliente
+			</f:facet>
+
+				<p:row>
+					<p:column>
+						<p:outputLabel for="datetime" value="¿Cuando puedo ubicarlo?" />
+					</p:column>
+					<p:column>
+
+						<p:calendar id="datetime"
+							value="#{politicaRediferidoBean.fechaUbicacion}" mode="inline"
+							locale="de" navigator="true" pattern="dd-MM-yyyy" />
+						<!--<p:calendar id="datetime"
+							value="#{politicaRediferidoBean.fechaUbicacion}"
+							pattern="MM/dd/yyyy HH:mm:ss" />-->
+
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<h:outputText value="Telefono a llamar:" />
+					</p:column>
+					<p:column>
+						<p:inputText autocomplete="off" id="txtNumeroTelefono"
+							value="#{politicaRediferidoBean.telefonoLlamar}" required="true"
+							label="telefono a llamar" size="40"
+							requiredMessage="Por favor ingrese el número de telefono"
+							validatorMessage="Formato Invalido Número de Telefono">
+							<f:validateDoubleRange minimum="0" />
+							<p:message for="txtNumeroTelefono" />
+						</p:inputText>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column>
+						<p:commandButton ajax="false" value="Omitir"
+							action="#{politicaRediferidoBean.agendamiento(1,DetallesObligacionesBean.obligacionHoy.numeroCredito)}" />
+					</p:column>
+
+					<p:column>
+						<p:commandButton ajax="false" value="Agendar"
+							action="#{politicaRediferidoBean.agendamientoLlamada(1,DetallesObligacionesBean.obligacionHoy.idObligacion)}"
+							update="growl" />
+					</p:column>
+				</p:row>
+			</p:panel>
+		</p:panelGrid>
+	</h:form>
+</body>
+</html>

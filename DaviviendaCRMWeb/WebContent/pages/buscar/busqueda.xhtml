@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style>
+		.sinBorde.ui-panelgrid>*>tr,
+		.sinBorde.ui-panelgrid .ui-panelgrid-cell {
+		    border: none;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form id="frmBuscar">
+		
+		<p:panel style="border:none;" id="contenidoBusqueda">
+			<center>
+			<p:panelGrid columns="4" styleClass="sinBorde">
+				<p:outputLabel value="Ingrese el id, identificación del cliente que desea buscar :" for="txtBuscar" style="font-weight:bold;"></p:outputLabel>
+				<p:inputText  value="#{busquedaBean.buscar}" id="txtBuscar" required="true" label="Filtro" requiredMessage="Ingrese un valor">
+					<f:validateLength minimum="4" />
+				</p:inputText>
+				<p:message for="txtBuscar" display="text"></p:message>
+
+				<p:commandButton ajax="false" action="#{busquedaBean.buscar}" value="BUSCAR"
+					id="buscarCont" onclick="PF('statusDialog').show();"
+					oncomplete="PF('statusDialog').hide();" process="frmBuscar"
+					update="frmBuscar:contenidoBusqueda"  icon="fa fa-search"/>
+			</p:panelGrid>
+			</center>
+
+			<p:dataTable var="cliente" value="#{busquedaBean.clientes}"
+				id="tblBusqCli" rows="10" paginator="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" rendered="#{busquedaBean.tabla}" paginatorPosition="bottom" style="margin-top:2%;">
+				<f:facet name="header">
+            		Clientes Encontrados
+        		</f:facet>
+
+				<p:column headerText="Identificaci&oacute;n">
+					<h:outputText value="#{cliente.identificacion}" />
+				</p:column>
+				<p:column headerText="idcliente">
+					<h:outputText value="#{cliente.idcliente}" />
+				</p:column>
+				<p:column headerText="Nombre">
+					<h:outputText value="#{cliente.nombre}" />
+				</p:column>
+				<p:column headerText="Correo">
+					<h:outputText value="#{cliente.correo}" />
+				</p:column>
+
+				<p:column headerText="" width="4%">
+
+					<p:commandButton ajax="false" id="buttonDetallePriorizacion"
+						icon="ui-icon-pencil" action="#{navegacionBean.redireccionarDatosCliente(cliente.idcliente)}"
+						onclick="PF('statusDialog').show();"
+						oncomplete="PF('statusDialog').hide();">
+					</p:commandButton>
+				</p:column>
+			</p:dataTable><br></br>
+			<center>
+				<p:outputLabel value="No se encontraron resultados."
+					rendered="#{busquedaBean.sinResultados}"
+					style="font-weight: bold;font-family: Arial,Helvetica,sans-serif;font-size:1.2em;"></p:outputLabel>
+			</center>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

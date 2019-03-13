@@ -1,0 +1,25 @@
+
+‡squid:S1192R"VDefine a constant instead of duplicating this literal "frmLlamar:panelLlamar" 3 times.(ÄóóñHÖæRCRITICALZ
+CODE_SMELL
+~squid:CommentedOutCodeLineF"<This block of commented-out lines of code should be removed.(Æ›éúÿÿÿÿH×æRMAJORZ
+CODE_SMELL
+dsquid:S11356"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHØæRINFOZ
+CODE_SMELL
+dsquid:S1135K"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿHÙæRINFOZ
+CODE_SMELL
+]squid:S001084")Either remove or fill this block of code.(¡»¢üùÿÿÿÿHÚæRMAJORZ
+CODE_SMELL
+Ysquid:S11487"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÛæRMINORZVULNERABILITY
+Ysquid:S1148L"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÜæRMINORZVULNERABILITY
+asquid:S1948"+Make "loginBean" transient or serializable.(š²„¢üÿÿÿÿHÝæRCRITICALZ
+CODE_SMELL
+Zsquid:S1948 "*Make "telefono" transient or serializable.(Ä†õ HÞæRCRITICALZ
+CODE_SMELL
+lsquid:S1948$";Make "obligacionesOtrasCampanas" transient or serializable.(ø¿ÃñHßæRCRITICALZ
+CODE_SMELL
+fsquid:S1948%"5Make "telefonosAsignacion" transient or serializable.(¯³•£HàæRCRITICALZ
+CODE_SMELL
+psquid:S1948&":Make "telefonosContactabilidad" transient or serializable.(¯Ó¾ÊÿÿÿÿÿHáæRCRITICALZ
+CODE_SMELL
+esquid:S1948'"4Make "telefonosRetirados" transient or serializable.(›ÌòéHâæRCRITICALZ
+CODE_SMELL

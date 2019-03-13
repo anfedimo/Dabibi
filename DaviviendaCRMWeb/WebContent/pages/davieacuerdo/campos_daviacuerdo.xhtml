@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<body>
+
+	<h:form id="camposDaviAcuerdo">
+		<p:panelGrid colspan="4">
+			<p:row>
+				<p:column>
+					<p:outputLabel value="Davi Abono: " for="txtDaviAbono" />
+				</p:column>
+				<p:column>
+					<p:inputNumber id="txtDaviAbono"
+						value="#{politicaRediferidoBean.daviAbono}" required="true"
+						requiredMessage="Por favor ingrese el davi abono"
+						decimalSeparator="," thousandSeparator=".">
+						<p:watermark for="txtDaviAbono" value="Davi Abono" />
+						<p:message for="txtDaviAbono" />
+					</p:inputNumber>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column>
+					<h:outputText value="Davibono:" />
+				</p:column>
+
+				<p:column>
+					<p:inputText  readonly="true"
+						value="#{politicaRediferidoBean.daviBono}" />
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+	</h:form>
+
+</body>
+</html>
